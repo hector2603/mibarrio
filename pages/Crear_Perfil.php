@@ -72,6 +72,18 @@ switch ($recibe_pagina){
 						</tr>
 
 						<tr>
+						  <td>Clientes</td>
+						  <td><input type='radio' name='cli' value='1' /></td>
+						  <td><input type='radio' name='cli' value='0' checked='checked' /></td>
+						</tr>
+
+						<tr>
+						  <td>Venta</td>
+						  <td><input type='radio' name='ven' value='1' /></td>
+						  <td><input type='radio' name='ven' value='0' checked='checked' /></td>
+						</tr>
+
+						<tr>
 						  <td>Reportes</td>
 						  <td><input type='radio' name='rep' value='1' /></td>
 						  <td><input type='radio' name='rep' value='0' checked='checked' /></td>
@@ -290,6 +302,26 @@ case "visualizar-seleccion":
 					<tr>
 					  <td>Facturacion</td>";
 					  if($consulta_perfil->get_PermisoFacturacion()){
+							echo "<td><strong>Si</strong></td>";	
+						}
+						else echo "<td><strong>No</strong></td>";
+
+					 echo"
+					</tr>
+
+					<tr>
+					  <td>Clientes</td>";
+					  if($consulta_perfil->get_PermisoCliente()){
+							echo "<td><strong>Si</strong></td>";	
+						}
+						else echo "<td><strong>No</strong></td>";
+
+					 echo"
+					</tr>
+
+					<tr>
+					  <td>Venta</td>";
+					  if($consulta_perfil->get_PermisoVenta()){
 							echo "<td><strong>Si</strong></td>";	
 						}
 						else echo "<td><strong>No</strong></td>";

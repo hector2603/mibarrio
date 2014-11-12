@@ -157,8 +157,27 @@
 						 	</li>";
 //Inventario.php
 					}
+					if($c_perfil->get_PermisoCliente()){
+						echo "
+							<li class='dropdown' >
+							 	<a href='#' class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false' >
+							 		Clientes <b class='caret'></b> 
+								<ul class='dropdown-menu'>
+			 			          	<li><a href='#'><b>Crear Cliente</b></a></li>
+						 		</ul>
+							</li>";
+					}
 					if($c_perfil->get_PermisoFacturacion()){
-						echo "<li><a href='#'>Facturaci&oacute;n</a></li>";
+						echo "
+							<li class='dropdown' >
+							 	<a href='#' class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false' >
+							 		Facturacion <b class='caret'></b> 
+								<ul class='dropdown-menu'>
+			 			          	<li><a href='#'><b>Crear Factura</b></a></li>
+			 			          	<li><a href='#'><b>Modificar Factura</b></a></li>
+						 		</ul>
+							</li>";
+
 					}
 					if($c_perfil->get_PermisoVenta()){
 						echo "<li><a href='#'>Vender</a></li>";
