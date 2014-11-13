@@ -8,7 +8,7 @@
 
 	$crear_Perfil = new Validar_Perfil();
 	$crear_Perfil->validar_Modificar_Perfil($_REQUEST['newnomb'],$_REQUEST['newsis'],$_REQUEST['newperf'],
-		$_REQUEST['newprod'],$_REQUEST['newinv'],$_REQUEST['newfac'],$_REQUEST['newrep'],$_REQUEST['perfil']);
+		$_REQUEST['newprod'],$_REQUEST['newinv'],$_REQUEST['newfac'],$_REQUEST['newrep'],$_REQUEST['newcli'],$_REQUEST['newve'],$_REQUEST['perfil']);
 
 
 	//}

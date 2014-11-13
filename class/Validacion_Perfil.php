@@ -7,11 +7,11 @@ include_once '../modelos/Modelo_Perfil.php';
 class Validar_Perfil{
 
 	public function validar_Crear_Perfil($nombre, $sistema, 
-		$perfiles, $productos, $inventario, $facturacion, $reportes)
+		$perfiles, $productos, $inventario, $facturacion, $reportes,$clientes ,$venta)
 	{
 		$c_perfil = new Controlador_Perfil();
 		$c_perfil->crear_Perfil($nombre, $sistema, 
-			$perfiles, $productos, $inventario, $facturacion, $reportes);
+			$perfiles, $productos, $inventario, $facturacion,$clientes ,$venta, $reportes);
 		$m_perfil=new Modelo_Perfil($c_perfil);
 		$info = $m_perfil->crear_Perfil($c_perfil);
 		/*if( == "exito"){
@@ -23,12 +23,12 @@ class Validar_Perfil{
 	}
 
 	public function validar_Modificar_Perfil($nombre, $sistema, 
-		$perfiles, $productos, $inventario, $facturacion, $reportes, $idPerfil)
+		$perfiles, $productos, $inventario, $facturacion, $reportes,$clientes,$venta, $idPerfil)
 	{
 			// se crea el objeto con los datos del form
 		$new_c_perfil = new Controlador_Perfil();
 		$new_c_perfil->crear_Perfil($nombre, $sistema, 
-			$perfiles, $productos, $inventario, $facturacion, $reportes);
+			$perfiles, $productos, $inventario, $facturacion,$clientes ,$venta, $reportes);
 		$new_m_perfil=new Modelo_Perfil($new_c_perfil);
 		// se modifica el perfil, y el resultado de la operacion de asigna a una variable
 		$info = $new_m_perfil->modificar_Perfil($idPerfil);

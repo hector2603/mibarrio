@@ -7,7 +7,7 @@
 
 	$crear_Perfil = new Validar_Perfil();
 	$crear_Perfil->validar_Crear_Perfil($_REQUEST['nomb_Perfil'],$_REQUEST['sis'],$_REQUEST['perf'],
-		$_REQUEST['prod'],$_REQUEST['inv'],$_REQUEST['fac'],$_REQUEST['rep']);
+		$_REQUEST['prod'],$_REQUEST['inv'],$_REQUEST['fac'],$_REQUEST['rep'],$_REQUEST['cli'],$_REQUEST['ven']);
 
 	// crea el nuevo perfil y pasa los datos correspondientes al nuevo perfil
 	

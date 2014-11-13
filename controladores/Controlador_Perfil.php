@@ -13,7 +13,7 @@ class Controlador_Perfil{
 	private $permiso_Clientes;		// boolean
 	
 	public function crear_Perfil($nom, $p_Sistema, $p_Perfiles, $p_Productos,
-						$p_Inventario, $p_Facturacion, $p_Reportes=NULL){
+						$p_Inventario,$p_Facturacion , $p_Clientes, $p_Venta, $p_Reportes=NULL){
 		$this->nombre = $nom;
 		$this->permiso_Sistema = $p_Sistema;
 		$this->permiso_Perfiles = $p_Perfiles;
@@ -58,10 +58,10 @@ class Controlador_Perfil{
 		return $this->permiso_Reportes;
 	}
 	public function get_PermisoVenta(){
-		//return $this->permiso_Venta;
+		return $this->permiso_Venta;
 	}
 	public function get_PermisoCliente(){
-		//return $this->permiso_Clientes;
+		return $this->permiso_Clientes;
 	}
 	
 	

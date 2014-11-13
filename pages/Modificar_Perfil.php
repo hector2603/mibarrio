@@ -112,6 +112,34 @@ if($c_perfil->get_PermisoPerfiles()){
 					}
 					echo "
 					</tr>
+					<tr>
+
+					  <td>Clientes</td>";
+					if($c_perfil2->get_PermisoCliente()){
+						echo "
+						<td><input type='radio' name='newcli' value='1' checked='checked'/></td>
+						<td><input type='radio' name='newcli' value='0'/></td>";
+					}else{
+						echo "
+						<td><input type='radio' name='newcli' value='1' /></td>
+						<td><input type='radio' name='newcli' value='0' checked='checked' /></td>";
+					}
+					echo "
+					</tr>
+
+					<tr>
+					  <td>Venta</td>";
+					if($c_perfil2->get_PermisoVenta()){
+						echo "
+						<td><input type='radio' name='newve' value='1' checked='checked'/></td>
+						<td><input type='radio' name='newve' value='0'/></td>";
+					}else{
+						echo "
+						<td><input type='radio' name='newve' value='1' /></td>
+						<td><input type='radio' name='newve' value='0' checked='checked' /></td>";
+					}
+					echo "
+					</tr>
 
 					<tr>
 					  <td>Reportes</td>";
