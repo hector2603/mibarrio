@@ -163,7 +163,7 @@
 							 	<a href='#' class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false' >
 							 		Clientes <b class='caret'></b> 
 								<ul class='dropdown-menu'>
-			 			          	<li><a href='#'><b>Crear Cliente</b></a></li>
+			 			          	<li><a href='Crear_Cliente.php?gestion=crearPerfil'><b>Crear Cliente</b></a></li>
 						 		</ul>
 							</li>";
 					}
