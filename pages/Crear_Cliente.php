@@ -59,7 +59,7 @@
                     
                     <div class='form-group' >
                         <div class='col-lg-9 col-lg-offset-3'>        
-                            <input type='submit' name='crear' class='btn btn-primary' value='Registrar usuario'>    <!-- Cliente-->
+                            <input type='submit' name='crear' class='btn btn-primary' value='Registrar Cliente'>    <!--usuario-->
                         </div>
                     </div>
 
