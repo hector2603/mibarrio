@@ -1,9 +1,9 @@
 <?php
 //llamado de los archivos que contienen las clases y metodos necesarios para el logueo
 include_once '../controladores/Controlador_Producto.php';
-include_once '../modelos/Modelo_Producto.php';
+include_once 'Modelo_Producto.php';
 include_once '../controladores/Controlador_Categoria.php';
-include_once '../modelos/Modelo_Categoria.php';
+include_once 'Modelo_Categoria.php';
 
 
 

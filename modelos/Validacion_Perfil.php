@@ -1,7 +1,7 @@
 <?php
 //llamado de los archivos que contienen las clases y metodos necesarios para el logueo
 include_once '../controladores/Controlador_Perfil.php';
-include_once '../modelos/Modelo_Perfil.php';//modelo perfil
+include_once 'Modelo_Perfil.php';//modelo perfil
 
 class Validar_Perfil{
 

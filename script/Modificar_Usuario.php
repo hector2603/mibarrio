@@ -1,6 +1,6 @@
 <?php
 	
-	include_once '../class/Validacion_Usuario.php';
+	include_once '../modelos/Validacion_Usuario.php';
 
 	$password= "";
 	$perfil= $_REQUEST['perfi'];

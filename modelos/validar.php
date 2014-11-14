@@ -1,6 +1,6 @@
 <?php
 //llamado de los archivos que contienen las clases y metodos necesarios para el logueo
-include_once '../modelos/Modelo_Logueo.php';
+include_once 'Modelo_Logueo.php';
 include_once '../controladores/Controlador_Logueo.php';
 
 class Validar{

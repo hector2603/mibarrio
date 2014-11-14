@@ -1,6 +1,6 @@
 <?php
 
-	include_once '../class/Validacion_Perfil.php';
+	include_once '../modelos/Validacion_Perfil.php';
 	// incluye las clases con metodos necesarios para la creacion del perfil
 
 	// obitne el nombre(string) y permisos(boolean) del nuevo perfil ingresados en el form. 
