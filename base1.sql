@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2014 a las 20:26:47
+-- Tiempo de generación: 14-11-2014 a las 05:59:49
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -51,6 +51,28 @@ INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `Documento` int(15) NOT NULL,
+  `Nombres` varchar(30) NOT NULL,
+  `Apellidos` varchar(30) NOT NULL,
+  `Direccion` varchar(30) NOT NULL,
+  `Telefono` int(10) NOT NULL,
+  `Correo_Electronico` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`Documento`, `Nombres`, `Apellidos`, `Direccion`, `Telefono`, `Correo_Electronico`) VALUES
+(123456789, 'hector', 'ocampo', 'carrer', 2147483647, 'hector@hotmail.com');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `perfiles`
 --
 
@@ -65,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `perfiles` (
 `ID` int(11) NOT NULL,
   `Clientes` tinyint(1) NOT NULL,
   `Venta` tinyint(1) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `perfiles`
@@ -76,7 +98,7 @@ INSERT INTO `perfiles` (`Nombre`, `Sistema`, `Perfiles`, `Productos`, `Inventari
 ('Root', 1, 1, 1, 1, 1, 1, 2, 1, 1),
 ('tercero', 0, 0, 1, 0, 0, 0, 3, 0, 0),
 ('cuarto', 1, 1, 1, 1, 1, 1, 4, 0, 1),
-('Vendedor ', 0, 0, 0, 0, 1, 0, 6, 0, 0);
+('Vendedor', 0, 0, 0, 0, 1, 0, 7, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -176,6 +198,12 @@ ALTER TABLE `categoria`
  ADD PRIMARY KEY (`id`,`nombre`), ADD UNIQUE KEY `id` (`id`), ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+ ADD PRIMARY KEY (`Documento`);
+
+--
 -- Indices de la tabla `perfiles`
 --
 ALTER TABLE `perfiles`
@@ -201,7 +229,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `perfiles`
 --
 ALTER TABLE `perfiles`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
