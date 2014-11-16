@@ -1,6 +1,13 @@
 <?php
 
 	include ("perfil.php"); 
+
+    include_once '../modelos/Modelo_Cliente.php';
+    include_once '../controladores/Controlador_Cliente.php';
+    include_once '../controladores/Controlador_Producto.php'; 
+    include_once '../controladores/Controlador_Categoria.php';
+    include_once '../modelos/Modelo_Producto.php';
+    include_once '../modelos/Modelo_Categoria.php';
     //echo $_REQUEST['gestion'];
 	$numero_error=$_REQUEST['gestion'];
     $_perfi = $c_usuario->get_Perfil();
@@ -9,148 +16,73 @@
     default:
 ?>
     <div class="row">
-        <div class="col-lg-2"></div>
-      <div class="col-lg-8">
+      <div class="col-lg-12">
         <div class="panel panel-primary">
             <div class='panel-heading'>
                 <h2 class='panel-title text-center'>Facturacion</h2>
             </div>
             <div class=' panel-body'>
-              <form action='#' method='post' class="form-horizontal">
+              <form action='factura_Creada.php' method='post' class="form-horizontal">
                 <fieldset>
                     <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Documento</label>
+                        <label  class='col-lg-2 control-label'>Vendedor:</label>
+                        <div class='col-lg-3'><?php 
+                            echo"<label  class=' col-lg-3 form-control'>".$c_usuario->get_Nombres()."</label>";
+                            echo"<input class='hide' name='id_vende' value='".$c_usuario->get_Nid()."'/>";
+                            ?>
+                        </div>
+                    </div>
+                    <div class='form-group' >
+                        <label  class='col-lg-2 control-label'>Cliente:</label>
                         <div class='col-lg-9'>
-                            <input type='text' name='n_id'  placeholder='Documento' required='required' class='form-control' />
-                        </div>
-                    </div>
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Tipo Documento:</label>
-                        <div class='col-lg-9'>
-                            <!-- Aqui el algoritmo para hacer un combobox para el genero -->
-                            <select name='tipo_id' class='form-control'>
-                                <option value='CC' selected>CC</option>
-                                <option value='TI'>TI</option>
-                                <option value='Pasap'>Pasaporte</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Nombres:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='nom'  placeholder='Nombres' required='required' class='form-control'/>
-                        </div>
-                    </div>
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Apellidos:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='apell'  placeholder='Apellidos' required='required' class='form-control'/>
-                        </div>
-                    </div>
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Usuario:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='usu'  placeholder='Usuario' required='required' class='form-control'/>
-                        </div>
-                    </div>
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Contraseña:</label>
-                        <div class='col-lg-9'>
-                            <input type='password' name='pass'  placeholder='Password' required='required' class='form-control' />
-                        </div>
-                    </div>
-                    
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Pregunta:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='pregun'  placeholder='Pregunta' required='required' class='form-control' maxlength=150/>
-                        </div>
-                    </div>
-                    
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Respuesta:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='respues'  placeholder='Respuesta' required='required' class='form-control' maxlength=150/>
-                        </div>
-                    </div>
-                    
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Ciudad:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='ciud' placeholder='Ciudad' required='required' class='form-control' maxlength=30/>
-                        </div>
-                    </div>
-                    
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Dirección:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='dire'  placeholder='Direcci&oacute;n' required='required' class='form-control' maxlength=30/>
-                        </div>
-                    </div>
-                    
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Edad:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='_edad'  placeholder='Edad' required='required' class='form-control' maxlength=3/>
-                        </div>
-                    </div>
-                    
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Foto:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='fot'  placeholder='Foto' required='required' class='form-control' maxlength=400/>
-                        </div>
-                    </div>
-                    
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Teléfono:</label>
-                        <div class='col-lg-9'>
-                            <input type='text' name='celu'  placeholder='Tel&eacute;fono' required='required' class='form-control' maxlength=10/>           
-                        </div>
-                    </div>
-
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Correo Electrónico:</label>
-                        <div class='col-lg-9'>        
-                            <input type='text' name='e_mail'  placeholder='Correo Electr&oacute;nico' required='required' class='form-control' maxlength=30/>
-                        </div>
-                    </div>
-
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Genero :</label>
-                        <div class='col-lg-9'>        
-                            <select name='gene'  class='form-control'>
-                                <option value='M' selected>M</option>
-                                <option value='F'>F</option>
-                            </select>  
-                        </div>
-                    </div>
-
-                    <div class='form-group' >
-                        <label  class='col-lg-3 control-label'>Seleccionar perfil:</label>
-                        <div class='col-lg-9'> 
 <?php       
-                           //Aqui el algoritmo para hacer un combobox para los perfiles
-                            $arr_perfiles = $m_perfil->mostrar_Todos();
-                            $tam_perfiles = count($arr_perfiles);
+                           //Aqui el algoritmo para hacer un combobox para los Clientes
+                            $c_clientes = new Controlador_Cliente();
+                            $m_clientes = new Modelo_Cliente($c_clientes);
+                            $arr_clientes = $m_clientes->mostrar_Todos();
+                            $tam_clientes = count($arr_clientes);
                             $combobit = "";
-                            for($i = 0; $i < $tam_perfiles; $i++){
-                                if($c_usuario->get_Perfil() === $arr_perfiles[$i][0]){
-                                    $_perfi = $arr_perfiles[$i][0];
-                                    $combobit .=" <option value='".$arr_perfiles[$i][7]."' selected>".$arr_perfiles[$i][0]."</option>";
-                                }
-                                else $combobit .=" <option value='".$arr_perfiles[$i][7]."'>".$arr_perfiles[$i][0]."</option>";
+                            for($i = 0; $i < $tam_clientes; $i++){
+                                    $combobit .=" <option value='".$arr_clientes[$i][0]."' selected>".$arr_clientes[$i][1]."</option>";
                             }
-                            if($c_perfil->get_PermisoSistema())
-                                echo "<td><select name='perfi' class='form-control'>".$combobit."</select></td>";
-                            else echo "<td><select name='perfi' class='form-control' disabled>".$combobit."</select></td>";
+                            if($c_perfil->get_PermisoFacturacion())
+                                echo "<select name='id_cliente' class='form-control'>".$combobit."</select>";
+                            else echo "<select name='id_cliente' class='form-control' disabled>".$combobit."</select>";
 ?>
                         </div>
                     </div>
+                    <div id="contenedorProductos" >  
+                        <div class='form-group' id ='div_productos0'>
+                            <label  class='col-lg-2 control-label'>Producto:</label>
+                            <div class='col-lg-2'>
+    <?php       
+                                $c_producto = new Controlador_Producto();
+                                $m_producto = new Modelo_Producto($c_producto);
+                                echo $m_producto->crear_select($c_perfil->get_PermisoFacturacion(),0);
+    ?>
+                            </div>
+                            <div class='col-lg-2'>
+                                <input id='cantidad0'type='text' name='cantidad0' onBlur="verificarEntrada(0)" placeholder='Cantidad' required='required' class='form-control'/>
+                            </div>
+                            <div class='col-lg-2'>
+                                <input type='text' id="precioUnidad0" readonly=true placeholder='precio c/u' required='required' class='form-control'/>
+                            </div>
+                            <div class='col-lg-2'>
+                                <input type='text' id="precioTotal0"  readonly=true placeholder='precio total' required='required' class='form-control'/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='form-group' >
+                        <label  class='col-lg-2 control-label'>Mas Productos:</label>
+                        <div class='col-lg-9'>
+                            <button class="btn btn-success" type="button" onclick="nuevaCapa()" ><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+
 
                     <div class='form-group' >
                         <div class='col-lg-9 col-lg-offset-3'>        
-                            <input type='submit' name='crear' class='btn btn-primary' value='Registrar Usuario'>
+                            <input type='submit'  class='btn btn-primary' value='Crear Factura'>
                         </div>
                     </div>
 
@@ -301,8 +233,8 @@ break;
             </div>
 
         </div>
-        <script src="../js/jquery.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/npm.js"></script>
+        <!--<script src="../js/formularioDinamico.js"></script>-->
     </body>
 </html>

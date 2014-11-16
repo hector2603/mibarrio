@@ -12,7 +12,84 @@
 <link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" type="text/css" />
 <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen" type="text/css" />
+<script src="../js/jquery.js"></script>
 
+<script type="text/javascript">
+	var campos = 0;
+
+	function nuevaCapa()	{
+		campos = campos + 1;
+		var NvoCampo= document.createElement("div");
+		NvoCampo.id= "divcampo_"+(campos);
+		NvoCampo.innerHTML="<div class='form-group' id ='div_productos"+campos+"'>"+
+								"<label class='col-lg-2 control-label'>"+
+									"Producto:"+
+								"</label>"+
+								"<div class='col-lg-2' id='productos"+campos+"'>"+
+	                            "</div>"+
+	                            "<div class='col-lg-2'>"+
+                                	"<input type='text' id='cantidad"+campos+"' name='cantidad"+campos+"' onBlur='verificarEntrada("+campos+")' placeholder='Cantidad' required='required' class='form-control'/>"+
+                            	"</div>"+
+	                            "<div class='col-lg-2'>"+
+                                	"<input type='text' id='precioUnidad"+campos+"' readonly=true placeholder='precio c/u'  required='required' class='form-control'/>"+
+                            	"</div>"+
+	                            "<div class='col-lg-2'>"+
+                                	"<input type='text' id='precioTotal"+campos+"' readonly=true placeholder='precio total' required='required' class='form-control'/>"+
+                            	"</div>"+
+	                            "<div class='col-lg-2'>"+
+                                	"<button class='btn btn-danger' type='button' onclick='borrarCapa("+campos+")' ><i class='fa fa-times'></i></button>"+
+                            	"</div>"+
+							"</div>";
+		var contenedor= document.getElementById("contenedorProductos");
+	    contenedor.appendChild(NvoCampo);
+	      $.post("../script/Buscar_Productos.php",
+  			{
+		    num_pro:campos	
+		  	},
+		  function(data,status){
+		    $("div #productos"+campos).html(data);
+		  });
+	    //var pro = document.getElementById("productos"+campos);
+	    //pro.appendChild(Productos);
+	    //$("#contenedorProductos").load("hola.txt");
+
+	}
+
+	function borrarCapa(iddiv){
+		$("#div_productos"+iddiv).remove();
+	}
+
+
+	//funcion para asignarle los valores de los productos a los campos de valor unitario y valor total
+	function verificarEntrada(control)
+	{	
+		var cantidad = $("#cantidad"+control).val();
+		var product = $("#select_productos"+control).val();
+		if($.isNumeric( cantidad ) && cantidad>0){
+
+			
+			$.post("../script/Buscar_Precio_Producto.php",
+	  			{
+			    id_pro:product	
+			  	},
+			  function(data,status){
+			    $("div #precioUnidad"+control).val(data);
+			    $("#precioTotal"+control).val(parseInt(data)*cantidad);
+			  });
+		}else{
+			$("#cantidad"+control).val("");
+		}
+	}
+
+	/*$(document).ready(function(){
+		$("#cantidad").blur(function() {
+	    	//$(this).var("hola");
+	    	alert("Holaa");
+		});
+	});*/
+
+
+</script>
 
 </head>
 <body>

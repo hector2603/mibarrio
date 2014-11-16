@@ -268,16 +268,13 @@ class Modelo_Cliente{
 
 	public function mostrar_Todos(){
 
-		$sql = "select * from usuarios";/*
-		$sql = "SELECT `Documento`, `Nombres`, `Apellidos`, `Usuario`, `Password`, `Pregunta`, `Respuesta`, 
-		`Tipo_Documento`, `Ciudad`, `Direccion`, `Edad`, `Foto`, `Telefono`, `Correo_Electronico`, `Genero`, 
-		`Nombre` FROM `usuarios`,`perfiles` WHERE (usuarios.perfiles_Nombre=perfiles.ID)";*/
+		$sql = "select * from clientes";
 		$registros = $this->bd->consultar($sql);
 		$ar;
 
 	    for($i = 0; $row = mysql_fetch_row($registros); $i++){
 
-	        for($j = 0; $j < 16; $j++){
+	        for($j = 0; $j < 6; $j++){
 	            
 	            $ar[$i][$j] = $row[$j];
 

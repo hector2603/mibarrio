@@ -196,7 +196,7 @@ class Modelo_Producto{
 
 	public function mostrar_Todos(){
 
-		$sql = "SELECT productos.id,productos.nombre, productos.descripcion,categoria.nombre,iva,valorIva,precioCompra,precioventa,Cantidad,estado FROM productos,categoria WHERE categoria=categoria.id";
+		$sql = "SELECT productos.id,productos.nombre, productos.descripcion,categoria.nombre,iva,valorIva,precioCompra,precioventa,Cantidad,estado FROM productos,categoria WHERE categoria=categoria.id ORDER BY productos.nombre ASC";
 		/*$sql = "select * from productos";
 		$sql = "SELECT `Documento`, `Nombres`, `Apellidos`, `Usuario`, `Password`, `Pregunta`, `Respuesta`, 
 		`Tipo_Documento`, `Ciudad`, `Direccion`, `Edad`, `Foto`, `Telefono`, `Correo_Electronico`, `Genero`, 
@@ -215,7 +215,29 @@ class Modelo_Producto{
 
 	    return $ar;
 	}
-	
+
+	public function crear_select($permiso,$num_producto){
+
+                                $productos = $this->mostrar_Todos();
+                                $tam_productos = count($productos);
+                                $combobit = "";
+                                for($i = 0; $i < $tam_productos; $i++){
+                                    if($i==1)
+                                        $combobit .=" <option value='".$productos[$i][0]."' selected>".$productos[$i][1]."</option>";
+                                    else
+                                        $combobit .=" <option value='".$productos[$i][0]."'>".$productos[$i][1]."</option>";
+                                }
+                                if($permiso)
+                                    return "<select id='select_productos".$num_producto."' name='producto".$num_producto."' class='form-control'>".$combobit."</select>";
+                                else return "<select name='producto' class='form-control' disabled>".$combobit."</select>";
+	}
+
+
+	public function precio_Producto($id){
+				$sql = "select precioVenta from productos where id='".$id."'";
+				$precio = mysql_fetch_array($this->bd->consultar($sql));
+				return $precio["precioVenta"];
+	}
 }
 
 ?>
