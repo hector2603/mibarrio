@@ -257,7 +257,12 @@
 
 					}
 					if($c_perfil->get_PermisoVenta()){
-						echo "<li><a href='#'>Vender</a></li>";
+						echo "
+						    <li class='dropdown' >
+						      <a href='#' class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
+						         Vender <b class='caret'></b> 
+								</a> 
+							</li>";
 					}
 
 					if($c_perfil->get_PermisoReportes()){
