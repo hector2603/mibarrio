@@ -238,6 +238,16 @@ class Modelo_Producto{
 				$precio = mysql_fetch_array($this->bd->consultar($sql));
 				return $precio["precioVenta"];
 	}
+
+	public function selec_precio_iva($id){
+		$sql = "SELECT precioVenta,valorIva,iva from productos where id='".$id."'";
+		$registros = $this->bd->consultar($sql);
+		$arreglo_resultado = mysql_fetch_array($registros);
+		/*$resultado[0] = $arreglo_resultado[0];
+		$resultado[1] = $arreglo_resultado[1];
+		$resultado[2] = $arreglo_resultado[2];*/
+		return $arreglo_resultado;
+	}
 }
 
 ?>
