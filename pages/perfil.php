@@ -23,9 +23,9 @@
 		NvoCampo.id= "divcampo_"+(campos);
 		NvoCampo.innerHTML="<div class='form-group' id ='div_productos"+campos+"'>"+
 								"<label class='col-lg-2 control-label'>"+
-									"Producto:"+
+									"N° "+(campos+1)+":"+
 								"</label>"+
-								"<div class='col-lg-2' id='productos"+campos+"'>"+
+								"<div class='col-lg-3' id='productos"+campos+"'>"+
 	                            "</div>"+
 	                            "<div class='col-lg-2'>"+
                                 	"<input type='text' id='cantidad"+campos+"' name='cantidad"+campos+"' onBlur='verificarEntrada("+campos+")' placeholder='Cantidad' required='required' class='form-control'/>"+
@@ -36,7 +36,7 @@
 	                            "<div class='col-lg-2'>"+
                                 	"<input type='text' id='precioTotal"+campos+"' readonly=true placeholder='precio total' required='required' class='form-control'/>"+
                             	"</div>"+
-	                            "<div class='col-lg-2'>"+
+	                            "<div class='col-lg-1'>"+
                                 	"<button class='btn btn-danger' type='button' onclick='borrarCapa("+campos+")' ><i class='fa fa-times'></i></button>"+
                             	"</div>"+
 							"</div>";
@@ -56,6 +56,7 @@
 	}
 
 	function borrarCapa(iddiv){
+		$("#precioTotalfactura").val(parseInt($("#precioTotalfactura").val())-parseInt($("#precioTotal"+iddiv).val()));
 		$("#div_productos"+iddiv).remove();
 	}
 
@@ -65,7 +66,7 @@
 	{	
 		var cantidad = $("#cantidad"+control).val();
 		var product = $("#select_productos"+control).val();
-		if($.isNumeric( cantidad ) && cantidad>0){
+		if($.isNumeric( cantidad ) && cantidad>0){ // verifica que sea numero y que sea mayor de 0
 
 			
 			$.post("../script/Buscar_Precio_Producto.php",
@@ -73,20 +74,29 @@
 			    id_pro:product	
 			  	},
 			  function(data,status){
-			    $("div #precioUnidad"+control).val(data);
-			    $("#precioTotal"+control).val(parseInt(data)*cantidad);
+			  	var cant = data.substr(data.indexOf("<l>")+4);// saca la cantidad del producto que le llega por el ajax 
+			  	var precio = data.substr(0,data.indexOf("<l>")-1); // saca el precio del producto que le llega por el ajax 
+			  	if(cantidad<=parseInt(cant)){ // verifica que la catidad no sea mayor a la que hay en el inventario 
+				    $("div #precioUnidad"+control).val(precio); // asigna al label el valor unitario del producto 
+				   	$("#precioTotal"+control).val(parseInt(precio)*cantidad); // asigna al label correspondiente el valor total del producto 
+				   	$("#precioTotalfactura").val(parseInt($("#precioTotalfactura").val())+parseInt(precio)*cantidad);// asigna al label el valor total de la factura 
+			  	}else{
+			  		$("#cantidad"+control).val("");
+			  		$("div #precioUnidad"+control).val("");
+			  		$("#precioTotal"+control).val("");
+			  		alert("La cantidad del producto en la fila "+(control+1)+" no esta disponible");
+			  	}
 			  });
 		}else{
 			$("#cantidad"+control).val("");
 		}
 	}
 
-	/*$(document).ready(function(){
-		$("#cantidad").blur(function() {
-	    	//$(this).var("hola");
-	    	alert("Holaa");
-		});
-	});*/
+	$(document).ready(function(){
+		var num_campos = parseInt($("#campostotales").val());
+		if ($("#campostotales").val()!="")
+			campos = num_campos-1;
+	});
 
 
 </script>
@@ -251,7 +261,7 @@
 							 		Facturacion <b class='caret'></b> 
 								<ul class='dropdown-menu'>
 			 			          	<li><a href='Crear_Factura.php?gestion=crearFactura'><b>Crear Factura</b></a></li>
-			 			          	<li><a href='#'><b>Modificar Factura</b></a></li>
+			 			          	<li><a href='Visualizar_Facturas.php'><b>Visualizar Facturas</b></a></li>
 						 		</ul>
 							</li>";
 

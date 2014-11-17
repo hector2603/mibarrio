@@ -234,9 +234,9 @@ class Modelo_Producto{
 
 
 	public function precio_Producto($id){
-				$sql = "select precioVenta from productos where id='".$id."'";
+				$sql = "select precioVenta , cantidad from productos where id='".$id."'";
 				$precio = mysql_fetch_array($this->bd->consultar($sql));
-				return $precio["precioVenta"];
+				return $precio["precioVenta"]." <l> ".$precio["cantidad"];
 	}
 
 	public function selec_precio_iva($id){
@@ -247,6 +247,22 @@ class Modelo_Producto{
 		$resultado[1] = $arreglo_resultado[1];
 		$resultado[2] = $arreglo_resultado[2];*/
 		return $arreglo_resultado;
+	}
+
+	public function crear_select2($permiso,$num_producto,$id_producto){
+
+                                $productos = $this->mostrar_Todos();
+                                $tam_productos = count($productos);
+                                $combobit = "";
+                                for($i = 0; $i < $tam_productos; $i++){
+                                    if($productos[$i][0]==$id_producto)
+                                        $combobit .=" <option value='".$productos[$i][0]."' selected>".$productos[$i][1]."</option>";
+                                    else
+                                        $combobit .=" <option value='".$productos[$i][0]."'>".$productos[$i][1]."</option>";
+                                }
+                                if($permiso)
+                                    return "<select id='select_productos".$num_producto."' name='producto".$num_producto."' class='form-control'>".$combobit."</select>";
+                                else return "<select name='producto' class='form-control' disabled>".$combobit."</select>";
 	}
 }
 
