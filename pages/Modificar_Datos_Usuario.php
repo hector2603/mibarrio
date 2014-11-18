@@ -157,9 +157,9 @@ switch ($numero_error){
                         for($i = 0; $i < $tam_perfiles; $i++){
                           if($c_usuario->get_Perfil() === $arr_perfiles[$i][0]){
                             $_perfi = $arr_perfiles[$i][0];
-                            $combobit .=" <option value='".$arr_perfiles[$i][0]."' selected>".$arr_perfiles[$i][0]."</option>";
+                            $combobit .=" <option value='".$arr_perfiles[$i][7]."' selected>".$arr_perfiles[$i][0]."</option>";
                           }
-                          else $combobit .=" <option value='".$arr_perfiles[$i][0]."'>".$arr_perfiles[$i][0]."</option>";
+                          else $combobit .=" <option value='".$arr_perfiles[$i][7]."'>".$arr_perfiles[$i][0]."</option>";
                         }
                         if($c_perfil->get_PermisoSistema())
                           echo "<td><select name='perfi' class='select'>".$combobit."</select></td>";

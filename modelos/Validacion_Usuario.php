@@ -39,18 +39,19 @@ class Validar_Usuario{
 
 		$c_perfil = new Controlador_Perfil();
 		$m_perfil = new Modelo_Perfil($c_perfil);
-		$m_perfil->buscar_Perfil($perfil);
+		$m_perfil->buscar_Perfil2($perfil);
+		$c_perfil = $m_perfil->getcontrolador();
 		$c_usuario = new Controlador_Usuario();
 		$c_usuario->crear_usuario($num_id, $usuario, $password, $nombres, $apellidos, 
 							$direccion, $email, $tipoid, $ciudad, $pregunta, $respuesta, 
-							$celular, $edad, $foto, $genero, $c_perfil->get_ID());
+							$celular, $edad, $foto, $genero, $perfil);
 
 		$m_usuario = new Modelo_Usuario($c_usuario);
 
 		$num_error = 1;
-		if($perfil)
+		//if($perfil)
 			$num_error = $m_usuario->actualizar_Datos_Usuario2($_REQUEST['doc']);
-
+		//$num_error = $perfil;
 		/*echo '<p>docum = '.$_REQUEST['doc'];
 		echo '<p>numerror = '.$num_error;
 		echo '<p>perfil = '.$perfil;
