@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" type="text/css" />
-<link rel="stylesheet" href="../css/bootstrap.min.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="../css/bootstrap.min2.css" media="screen" type="text/css" />
 <script src="../js/jquery.js"></script>
 
 <script type="text/javascript">
@@ -109,7 +109,7 @@
 		<br>
 		<div class="col-md-6"></div>
 		<div class="col-md-6"><br><br><br>
-			<div class="navbar  navbar-inverse "><!-- navbar-fixed-bottom -->
+			<div class="navbar  navbar-default "><!-- navbar-fixed-bottom -->
 				<?php 
 					include_once '../modelos/Modelo_Usuario.php';
 					include_once '../controladores/Controlador_Usuario.php';
@@ -176,7 +176,7 @@
 		</div>
 	</div>
 <div class="row"> 
-		<div class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-header">
 			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 			      <span class="icon-bar"></span>
@@ -270,8 +270,11 @@
 						echo "
 						    <li class='dropdown' >
 						      <a href='#' class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
-						         Vender <b class='caret'></b> 
-								</a> 
+						         Cajero <b class='caret'></b> 
+								</a>
+							<ul class='dropdown-menu'>
+			 			          	<li><a href='Visualizar_Facturas_Sin_Registrar.php?gestion=verFacturas'><b>Visualizar Facturas</b></a></li>
+						 	</ul> 
 							</li>";
 					}
 

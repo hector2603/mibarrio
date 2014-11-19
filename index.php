@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap.min2.css" type="text/css" />
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css" />
 </head>
 <body>

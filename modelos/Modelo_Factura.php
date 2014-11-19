@@ -129,7 +129,7 @@ class Modelo_Factura{
 		$sql = "SELECT 
 		`Idfactura`, `fechaventa`, usuarios.Nombres, clientes.Nombres, `IVAtotalfactura`, `montototalsinIVA`, `montototalconIVA`, `estado` 
 		FROM
-		 `factura`,`usuarios`,clientes WHERE `Idvendedor`= usuarios.Documento AND `Idcliente`= clientes.Documento";
+		 `factura`,`usuarios`,clientes WHERE `Idvendedor`= usuarios.Documento AND `Idcliente`= clientes.Documento ORDER BY Idfactura ASC";
 		 $registros = $this->bd->consultar($sql);
 
 		for($i = 0; $row = mysql_fetch_row($registros); $i++){
@@ -146,7 +146,7 @@ class Modelo_Factura{
 			`Idfactura`, `fechaventa`, `Idvendedor` ,usuarios.Nombres, `Idcliente`, clientes.Nombres, `IVAtotalfactura`, `montototalsinIVA`,
 		 	`montototalconIVA`, `estado` 
 		FROM `factura`,`usuarios`,clientes 
-		WHERE `Idvendedor`= usuarios.Documento AND `Idcliente`= clientes.Documento AND Idfactura = $id_fac AND estado='Sin registra'";
+		WHERE `Idvendedor`= usuarios.Documento AND `Idcliente`= clientes.Documento AND Idfactura = $id_fac AND estado='Sin registra' ";
 
 		 $registros = $this->bd->consultar($sql);
 
@@ -167,6 +167,17 @@ class Modelo_Factura{
 	        }
 	    }
 	    return $ar;
+	}
+	public function productos_Factura2($id_fac){ // funcion que retorna los productos dependiendo del id de una factura usada para el modulo de registro factura
+
+	$sql = "SELECT `id_principal`, `Idfactura`, `IdProducto`, `cantidadProducto`, precioVenta , nombre FROM `listaproductos`, productos WHERE IdFactura = $id_fac AND IdProducto = id ";		
+	$registros = $this->bd->consultar($sql);
+	for($i = 0; $row = mysql_fetch_row($registros); $i++){
+        for($j = 0; $j < 6; $j++){
+            $ar[$i][$j] = $row[$j];
+        }
+    }
+    return $ar;
 
 
 	}
@@ -177,7 +188,29 @@ class Modelo_Factura{
 			else $salida = 7;
 
 	}
-	
+
+	public function infoFactura_infoCliente($id_fac){ // funcion que retorna la informacion de la factura id_fac
+		
+		$sql = "SELECT 
+		`Idfactura`, `fechaventa`, usuarios.Nombres, usuarios.Documento ,clientes.Nombres, `IVAtotalfactura`, 
+		`montototalsinIVA`, `montototalconIVA`, `estado` , clientes.Apellidos, clientes.Correo_Electronico,
+		 clientes.Telefono, clientes.Documento, clientes.Direccion 
+		 FROM `factura`,`usuarios`, clientes 
+		 WHERE `Idvendedor`= usuarios.Documento AND `Idcliente`= clientes.Documento AND Idfactura=$id_fac 
+		 ORDER BY Idfactura ASC";
+
+
+		$registros = $this->bd->consultar($sql);
+
+		for($i = 0; $row = mysql_fetch_row($registros); $i++){
+	        for($j = 0; $j < 14; $j++){
+	            $ar[$i][$j] = $row[$j];
+	        }
+	    }
+	    return $ar;
+	}
+
+
 }
 
 ?>

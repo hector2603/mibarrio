@@ -216,7 +216,7 @@ class Modelo_Producto{
 	    return $ar;
 	}
 
-	public function crear_select($permiso,$num_producto){
+	public function crear_select($permiso,$num_producto){ // Crea el select que se una en la creacion de la factura 
 
                                 $productos = $this->mostrar_Todos();
                                 $tam_productos = count($productos);
@@ -249,7 +249,8 @@ class Modelo_Producto{
 		return $arreglo_resultado;
 	}
 
-	public function crear_select2($permiso,$num_producto,$id_producto){
+	public function crear_select2($permiso,$num_producto,$id_producto){ // crea el select en la parte de la modificacion de facturas 
+		//num_producto es el numero de producto, osea la fila en la que esta 
 
                                 $productos = $this->mostrar_Todos();
                                 $tam_productos = count($productos);
