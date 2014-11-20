@@ -75,7 +75,7 @@
         $c_factura =  new Controlador_Factura();
         $c_factura->Crear_Factura($id_Factura,$id_vendedor,$id_cliente,$fecha,$productos,$total_iva,$suma_con_iva,$suma_sin_iva,$estado);
         $m_factura = new Modelo_Factura($c_factura);
-        $m_factura->borrarproductos($id_Factura);
+        //$m_factura->borrarproductos($id_Factura);
         $resultado = $m_factura->actualizar_Factura();
         //echo $resultado;
         //var_dump($resultado);

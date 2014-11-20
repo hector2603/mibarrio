@@ -160,15 +160,18 @@
 
 break;
 case 1:
-	echo "<div class='alert alert-dismissable alert-success'><h1><i>Factura Creada</i></h1></div'>";
+	echo "<div class='alert alert-dismissable alert-success'>
+    <h1><i>Factura Creada</i></h1>
+    <a class='btn btn-primary' href='../script/Crear_PDF.php?id_factura=$id_factura'>Imprimir</a>
+    </div'>";
 break; 
 case 2:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado La Factura.</i></h1>";
     echo "<p>Error: El id de la factura ya existe </div><br>";
 break;
 case 3:
-    echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado La Factura.</i></h1>";
-    echo "<p>Error: Los Productos Ya Existen </div><br>";
+    echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha registrado La Factura.</i></h1>";
+    echo "<p>Error: la cantidad de productos en el stock no es suficiente para registrar la factura</div><br>";
 }
 
 

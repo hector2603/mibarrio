@@ -34,6 +34,11 @@ class Modelo_Factura{
 			$salida = 7;
 		else $salida = 5;
 
+		$sql = "DELETE FROM `listaproductos` WHERE  `Idfactura`=".$this->factura->get_idFactura();
+		if($this->bd->insertar($sql))
+				$salida = 1;
+			else $salida = 7;
+
 
 		$productos =$this->factura->get_Productos();
 		$nummero_de_productos = count($this->factura->get_Productos());
@@ -47,7 +52,6 @@ class Modelo_Factura{
 		if($this->bd->insertar($sql))
 			$salida = 7;
 		else $salida = 6;
-		$this->bd->desconectar();
 
 		return $salida;
 	}
@@ -129,7 +133,7 @@ class Modelo_Factura{
 		$sql = "SELECT 
 		`Idfactura`, `fechaventa`, usuarios.Nombres, clientes.Nombres, `IVAtotalfactura`, `montototalsinIVA`, `montototalconIVA`, `estado` 
 		FROM
-		 `factura`,`usuarios`,clientes WHERE `Idvendedor`= usuarios.Documento AND `Idcliente`= clientes.Documento ORDER BY Idfactura ASC";
+		 `factura`,`usuarios`,clientes WHERE `Idvendedor`= usuarios.Documento AND `Idcliente`= clientes.Documento AND estado='Sin registra' ORDER BY Idfactura ASC";
 		 $registros = $this->bd->consultar($sql);
 
 		for($i = 0; $row = mysql_fetch_row($registros); $i++){
@@ -140,7 +144,7 @@ class Modelo_Factura{
 	    return $ar;
 	}
 
-	public function infoFactura($id_fac){ // funcion que retorna la informacion de la factura id_fac$sql = "SELECT `Idfactura`, `fechaventa`, `Idvendedor` ,usuarios.Nombres, `Idcliente`, clientes.Nombres, `IVAtotalfactura`, `montototalsinIVA`, `montototalconIVA`, `estado` FROM `factura`,`usuarios`,clientes WHERE `Idvendedor`= usuarios.Documento AND `Idcliente`= clientes.Documento AND Idfactura = 1";
+	public function infoFactura($id_fac){ // funcion que retorna la informacion de la factura id_fac$sql =
 		$sql = "
 		SELECT 
 			`Idfactura`, `fechaventa`, `Idvendedor` ,usuarios.Nombres, `Idcliente`, clientes.Nombres, `IVAtotalfactura`, `montototalsinIVA`,
@@ -210,6 +214,59 @@ class Modelo_Factura{
 	    return $ar;
 	}
 
+	public function registrarFactura($id_fac){
+
+			$info_Factura = $this->infoFactura_infoCliente($id_fac);
+			$info_Productos = $this->productos_Factura2($id_fac);
+
+			$cantidad = true ;// boolean que se cambiara a false si algun producto no tiene la cantidad suficiente en el stock
+			for($i = 0; $i<count($info_Productos);$i++){
+				if($info_Productos[$i][3]>$this->cantidad_producto($info_Productos[$i][2])){
+					$cantidad = false;
+				}
+			}
+			$salida = 0;
+			if($cantidad){
+				for($i = 0; $i<count($info_Productos);$i++){
+				$salida = $this->actualizar_cantidad_producto($info_Productos[$i][2],$info_Productos[$i][3]);
+				}
+			}else{
+				$salida = 3;
+			}
+			if($salida == 1){
+				$sql = "UPDATE `factura` SET `estado`='Registrada' WHERE `idfactura` = $id_fac";
+				if($this->bd->insertar($sql))
+					$salida = 1;
+				else $salida = 2;
+			}
+		$this->bd->desconectar();
+		return $salida;
+
+	}
+
+
+	public function cantidad_producto($id_producto){
+
+				$sql = "select cantidad from productos where id='".$id_producto."'";
+				$precio = mysql_fetch_array($this->bd->consultar($sql));
+				return $precio["cantidad"];
+	}
+
+	public function actualizar_cantidad_producto($id_pro,$cantidad){// update el produco, cantidad es el numero que se disminuira en la base de datos
+
+		$cantidadFinal = intval($this->cantidad_producto($id_pro))-$cantidad; // se le resta a la cantidad del producto inicial, la cantidad que entro como parametro 
+		$sql = "UPDATE `productos` SET `cantidad`=$cantidadFinal WHERE `id` = $id_pro";
+		if($this->bd->insertar($sql))
+			$salida = 1;
+		else $salida = 2;
+		return $salida;
+
+	}
+
+
+
+
+	
 
 }
 
