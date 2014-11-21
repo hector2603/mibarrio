@@ -73,7 +73,7 @@
                     </div>
                     <hr>
                     <div class='form-group' >
-                        <label  class='col-lg-3 control-label'><center># Producto </center></label>
+                        <label  class='col-lg-3 control-label'><center> Producto </center></label>
                         <label  class='col-lg-2 control-label'><center>Nombre Producto </center></label>
                         <label  class='col-lg-2 control-label'><center>Cantidad</center></label>
                         <label  class='col-lg-2 control-label'><center>Precio Unidad</center></label>
@@ -83,7 +83,7 @@
                     <hr>
                     <div id="contenedorProductos" >  
                         <div class='form-group' id ='div_productos0'>
-                            <label  class='col-lg-2 control-label'>N° 1:</label>
+                            <label  class='col-lg-2 control-label'>Producto :</label>
                             <div class='col-lg-3'>
     <?php       
                                 $c_producto = new Controlador_Producto();
@@ -104,9 +104,10 @@
                     </div>
                     <div class='form-group' >
                         <label  class='col-lg-2 control-label'>Mas Productos:</label>
-                        <div class='col-lg-7'>
+                        <div class='col-lg-5'>
                             <button class="btn btn-success" type="button" onclick="nuevaCapa()" ><i class="fa fa-plus"></i></button>
                         </div>
+                        <label  class='col-lg-2 control-label'>Precio Total De la Factura :</label>
                         <div class='col-lg-2'>
                             <input type='text' id="precioTotalfactura" value="0" readonly=true placeholder='precio Total Factura' class='form-control'/>
                         </div>

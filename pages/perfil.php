@@ -23,7 +23,7 @@
 		NvoCampo.id= "divcampo_"+(campos);
 		NvoCampo.innerHTML="<div class='form-group' id ='div_productos"+campos+"'>"+
 								"<label class='col-lg-2 control-label'>"+
-									"N° "+(campos+1)+":"+
+									"Producto:"+
 								"</label>"+
 								"<div class='col-lg-3' id='productos"+campos+"'>"+
 	                            "</div>"+
@@ -68,7 +68,16 @@
 		var product = $("#select_productos"+control).val();
 		if($.isNumeric( cantidad ) && cantidad>0){ // verifica que sea numero y que sea mayor de 0
 
-			
+			var precioFactura = $("#precioTotalfactura").val(); // variable donde se guarda el precio total de la factura que tiene ese momento 
+			var preciototalProducto = $("#precioTotal"+control).val();// se guarda el precio total de los productos que llamo la funcion 
+			if(precioFactura == ""){ // si los campos son null aca se le asigna un cero 
+				precioFactura = 0;
+			}
+			if(preciototalProducto == ""){
+				preciototalProducto = 0;
+			}
+
+		   	$("#precioTotalfactura").val(parseInt(precioFactura)-parseInt(preciototalProducto));// asigna al label el valor total de la factura 
 			$.post("../script/Buscar_Precio_Producto.php",
 	  			{
 			    id_pro:product	
@@ -96,6 +105,14 @@
 		var num_campos = parseInt($("#campostotales").val());
 		if ($("#campostotales").val()!="")
 			campos = num_campos-1;
+
+		if(campos!=-1){
+			var aux = 0;
+			for(var i = 0;i<=campos;i++){
+				aux += parseInt($("#precioTotal"+i).val());
+			}
+			$("#precioTotalfactura").val(aux);
+		}
 	});
 
 
