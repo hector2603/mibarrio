@@ -36,7 +36,7 @@ class Modelo_Usuario{
 			$this->usuario->set_Foto($reg['Foto']);
 			$this->usuario->set_Genero($reg['Genero']);
 			$this->usuario->set_Perfil($reg['perfiles_Nombre']);
-//UPDATE usuarios SET Documento=1116266810, Nombres='hector fabio', Apellidos = 'Ocampo arbelaez', Usuario = 'hector', Pregunta = '¿Nombre de mi primera mascota?', Respuesta = 'perrita', Tipo_Documento = 'CC', Ciudad = 'tulua', Direccion = 'carreta 9', Edad = '18', Foto = 'https://scontent-b-iad.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10406906_10152299501150878_2547701765636007950_n.jpg?oh=e2935e0f2eaf87b1f4718b457a683d5c&oe=54E4EB80', Telefono = '23059828', Correo_Electronico = 'the.hector2603@gmail.com', Genero = 'M', perfiles_Nombre = ' WHERE Documento=1116266810
+
 		}
 	}
 

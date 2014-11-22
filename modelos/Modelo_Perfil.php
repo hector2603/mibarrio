@@ -165,9 +165,6 @@ class Modelo_Perfil{
 
 	    return $ar;
 	}
-	public function getcontrolador(){
-		return $this->perfil;
-	}
 }
 
 ?>
