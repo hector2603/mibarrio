@@ -125,7 +125,7 @@ case 11:
     echo "<p>Error: Validaci&oacute;n: 'Tel&eacute;fono' tipo de dato debe ser Num&eacute;rico</div><br>";
 break;
 case 12:
-    echo "<div class='alert alert-dismissable alertwarningr'><h1><i>No se ha creado el Cliente.</i></h1>";
+    echo "<div class='alert alert-dismissable alert-warning'><h1><i>No se ha creado el Cliente.</i></h1>";
     echo "<p>Error: Validaci&oacute;n: 'Correo Electr&oacute;nico' tipo de dato debe ser Alfanum&eacute;rico</div><br>";
 break;
 case 13:
