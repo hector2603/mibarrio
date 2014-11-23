@@ -27,7 +27,7 @@ class Modelo_Cliente{
 		$salida = 0;
 		$valida = new Validacion_Datos(); // <- Para validar los tipos de datos
 		// Validacion de los minimos
-		if(!(strlen($this->cliente->get_Documento()) > 8))		$salida = 5;
+		if(!(strlen($this->cliente->get_Documento()) > 7))		$salida = 5;
 		elseif(!(strlen($this->cliente->get_Nombres()) > 2))	$salida = 2;
 		elseif(!(strlen($this->cliente->get_Apellidos()) > 2))	$salida = 3;
 		elseif(!(strlen($this->cliente->get_Direccion()) > 2))	$salida = 6;
