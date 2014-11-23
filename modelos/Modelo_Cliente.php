@@ -27,24 +27,24 @@ class Modelo_Cliente{
 		$salida = 0;
 		$valida = new Validacion_Datos(); // <- Para validar los tipos de datos
 		// Validacion de los minimos
-		if(!(strlen($this->cliente->get_Documento()) > 8))		$salida = 5;
+		if(!(strlen($this->cliente->get_Documento()) > 7))		$salida = 5;
 		elseif(!(strlen($this->cliente->get_Nombres()) > 2))	$salida = 2;
 		elseif(!(strlen($this->cliente->get_Apellidos()) > 2))	$salida = 3;
 		elseif(!(strlen($this->cliente->get_Direccion()) > 2))	$salida = 6;
 		elseif(!(strlen($this->cliente->get_Celular()) > 7))	$salida = 7;
 		elseif(!(strlen($this->cliente->get_Email()) > 6))		$salida = 4;
 		// Validacion de los tipos de datos (Numérico,Alfabético,Alfanumérico)
-		elseif(!($valida->is_Number($this->cliente->get_Documento())))			$salida = 18;
-		elseif(!($valida->is_Alphabetic($this->cliente->get_Nombres())))		$salida = 20;
-		elseif(!($valida->is_Alphabetic($this->cliente->get_Apellidos())))		$salida = 21;
-		elseif(!($valida->is_Number($this->cliente->get_Celular())))			$salida = 28;
+		elseif(!($valida->is_Number($this->cliente->get_Documento())))			$salida = 8;
+		elseif(!($valida->is_Alphabetic($this->cliente->get_Nombres())))		$salida = 9;
+		elseif(!($valida->is_Alphabetic($this->cliente->get_Apellidos())))		$salida = 10;
+		elseif(!($valida->is_Number($this->cliente->get_Celular())))			$salida = 11;
 
 
 		///////////////////////////////////////////////////////////////////////////
 
 		elseif($this->bd->insertar($sql))
 			$salida = true;
-		else $salida = 31;
+		else $salida = 14;
 		//INSERT INTO `clientes` (`Documento`, `Nombres`, `Apellidos`,`Direccion`, `Telefono`, `Correo_Electronico`)  VALUES (123456789, hector, ocampo, carrer, 3124567899, hector@hotmail.com);
 
 		return $salida;
