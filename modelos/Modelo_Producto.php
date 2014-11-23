@@ -233,7 +233,7 @@ class Modelo_Producto{
 	}
 
 
-	public function precio_Producto($id){
+	public function precio_Producto($id){// funcion que se ejecuta por medio de jquery, esta funcion retorna el precio del producto asi como la cantidad que hay disponible del mismo 
 				$sql = "select precioVenta , cantidad from productos where id='".$id."'";
 				$precio = mysql_fetch_array($this->bd->consultar($sql));
 				return $precio["precioVenta"]." <l> ".$precio["cantidad"];
