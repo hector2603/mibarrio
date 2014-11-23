@@ -19,41 +19,41 @@
                     <div class='form-group' >
                         <label  class='col-lg-3 control-label'>Nombre</label>
                         <div class='col-lg-9'>
-                            <input type='text' name='nom'  placeholder='Nombre' required='required' class='form-control' maxlength=30/>
+                            <input type='text' name='nom'  placeholder='Nombre Minimo 2 caracteres' required='required' class='form-control' maxlength=30/>
                         </div>
                     </div>
                     <div class='form-group' >
                         <label  class='col-lg-3 control-label'>Apellidos:</label>
                         <div class='col-lg-9'>
-                            <input type='text' name='apell'  placeholder='Apellidos' required='required' class='form-control'maxlength=30/>
+                            <input type='text' name='apell'  placeholder='Apellidos Minimo 2 caracteres' required='required' class='form-control'maxlength=30/>
                         </div>
                     </div>
 
                     <div class='form-group' >
                         <label  class='col-lg-3 control-label'>Correo Electrónico:</label>
                         <div class='col-lg-9'>        
-                            <input type='text' name='e_mail'  placeholder='Correo Electr&oacute;nico' required='required' class='form-control' maxlength=60/>
+                            <input type='text' name='e_mail'  placeholder='Correo Electr&oacute;nico Minimo 6 caracteres' required='required' class='form-control' maxlength=60/>
                         </div>
                     </div>
 
                     <div class='form-group' >
                         <label  class='col-lg-3 control-label'>Teléfono:</label>
                         <div class='col-lg-9'>
-                            <input type='text' name='celu'  placeholder='Tel&eacute;fono' required='required' class='form-control' maxlength=10/>           
+                            <input type='text' name='celu'  placeholder='Tel&eacute;fono Minimo 8 caracteres' required='required' class='form-control' maxlength=10/>           
                         </div>
                     </div>
 
                     <div class='form-group' >
                         <label  class='col-lg-3 control-label'>Documento:</label>
                         <div class='col-lg-9'>
-                            <input type='text' name='doc'  placeholder='Documento' required='required' class='form-control' maxlength=15/>
+                            <input type='text' name='doc'  placeholder='Documento Minimo 8 caracteres' required='required' class='form-control' maxlength=15/>
                         </div>
                     </div>
 
                     <div class='form-group' >
                         <label  class='col-lg-3 control-label'>Dirección:</label>
                         <div class='col-lg-9'>
-                            <input type='text' name='dire'  placeholder='Direcci&oacute;n' required='required' class='form-control' maxlength=30/>
+                            <input type='text' name='dire'  placeholder='Direcci&oacute;n Minimo 2 caracteres' required='required' class='form-control' maxlength=30/>
                         </div>
                     </div>
                     
