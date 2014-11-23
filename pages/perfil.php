@@ -106,12 +106,14 @@
 		if ($("#campostotales").val()!="")
 			campos = num_campos-1;
 
-		if(campos!=-1){
+		if(campos!=0){
 			var aux = 0;
 			for(var i = 0;i<=campos;i++){
 				aux += parseInt($("#precioTotal"+i).val());
 			}
 			$("#precioTotalfactura").val(aux);
+		}else{
+			$("#precioTotalfactura").val(0);
 		}
 	});
 

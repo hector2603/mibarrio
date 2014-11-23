@@ -33,7 +33,7 @@ echo
                 <h2 class='panel-title text-center'>Modificar Usuario</h2>
             </div>
             <div class=' panel-body'>
-              <form action='../script/Modificar_Usuario.php?doc=".$c_usuario2->get_Nid()."&perfi=".$_perfi."' method='post' class='form-horizontal'>
+              <form action='../script/Modificar_Usuario.php?doc=".$c_usuario2->get_Nid()."' method='post' class='form-horizontal'>
                 <fieldset>
                     <div class='form-group' >
                         <label  class='col-lg-3 control-label'>Documento</label>
@@ -177,7 +177,7 @@ echo
                             $tam_perfiles = count($arr_perfiles);
                             $combobit = "";
                             for($i = 0; $i < $tam_perfiles; $i++){
-                                if($c_usuario->get_Perfil() === $arr_perfiles[$i][0]){
+                                if($c_usuario->get_Perfil() === $arr_perfiles[$i][7]){
                                     $_perfi = $arr_perfiles[$i][0];
                                     $combobit .=" <option value='".$arr_perfiles[$i][7]."' selected>".$arr_perfiles[$i][0]."</option>";
                                 }

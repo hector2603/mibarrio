@@ -12,7 +12,18 @@
 	$recibe2 = $recibe_pagina;
 	$recibe_pagina2=$recibe_pagina;
 	$tam = 2;
-	echo "<div><table border=1 class='table table-striped table-hover '>
+ 	if($c_perfil->get_PermisoInventario()){
+	echo"<form action='Buscar_Categoria.php?page=1' method='post' class='form-horizontal'>
+	<fieldset>";
+	echo "<div class='form-group'>
+		<div class='col-lg-3'>
+			<input type='text' class='form-control 'name='nombre' value='' placeholder='Escriba el nombre a buscar' required='required'/>
+		 </div>
+		 <div class='col-lg-2'>
+			<input type='submit' name='buscar' class='btn btn-primary' value='Buscar'>
+		</div>
+	</div>";
+	echo "<div><table border=1 class='table table-striped table-hover table-condensed'>
 		<tr>
 			<td><font size=1></font></td>
 			<td><font size=$tam>Id</font></td>	
@@ -21,14 +32,7 @@
 		</tr>
 			</font> 
 	";
- 	if($c_perfil->get_PermisoInventario()){
- 		echo"<form action='Buscar_Categoria.php?page=1' method='post'>";
- 		echo "<div class='col-lg-3'>
- 				<input type='text' class='form-control 'name='nombre' value='' placeholder='Escriba el nombre a buscar' required='required'/>
- 			  </div>
- 			<input type='submit' name='buscar' class='btn btn-primary' value='Buscar'>
- 			";
- 		echo "</form>";
+ 		echo "</fieldset></form>";
  		$c_categoria = new Controlador_Categoria();
  		$m_categoria= new Modelo_Categoria($c_categoria);
  		$categorias = $m_categoria->mostrar_Todos();

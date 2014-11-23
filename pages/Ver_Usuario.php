@@ -12,13 +12,20 @@
 	$tam = 2;
 	echo "<div class='well'>";
 	 	if($c_perfil->get_PermisoSistema()){
- 		echo"<form action='Buscar.php?page=1' method='post' class='form-inline'>
- 				<input type='text' name='nombre' value='' placeholder='Escriba el nombre a buscar' required='required' class='form-control'/>
- 				<input type='submit' name='buscar' class='btn btn-primary' value='Buscar' />
+ 		echo"<div class='row'>
+ 		<form action='Buscar.php?page=1' method='post' class='form-inline'>
+ 				<div class='col-lg-2'>
+ 					<input type='text' name='nombre' value='' placeholder='Escriba el nombre a buscar' required='required' class='form-control'/>
+ 				</div>
+ 				<div class='col-lg-2'>
+ 					<input type='submit' name='buscar' class='btn btn-primary' value='Buscar' />
+ 				</div>
  			</form>
- 			<br>
+ 		</div>
  		";
-	echo "<table border=1 class='table table-striped table-hover'>
+	echo "
+<div class='row table-responsive'>
+	<table  class='table table-striped table-bordered table-hover table-condensed'>
 		<tr>
 			<td><font size=1></font></td>
 			<td><font size=$tam>Documento</font></td>
@@ -37,8 +44,7 @@
 			<td><font size=$tam>Correo Electr&oacute;nico</font></td>
 			<td><font size=$tam>G&eacute;nero</font></td>
 			<td><font size=$tam>Perfil</font></td>
-		</tr>
-			</font> 
+		</tr> 
 	";
  		$usuarios = $m_usuario->mostrar_Todos();
  		$tam_usuarios = count($usuarios);
@@ -79,29 +85,29 @@
 				</tr>";
  			
  		}
- 		echo '<tr>';
+ 		echo '</table>';
  		if($fin2 != 0){
  			$recibe_pagina2--;
  			echo '
- 					<td><div class="eliminar"><font size=$tam ><center>
- 					<a href = "Ver_Usuario.php?page='.$recibe_pagina2.'">
+ 					<div >
+ 					<a class="btn btn-primary" href = "Ver_Usuario.php?page='.$recibe_pagina2.'">
  						Anterior
-					</font></a></div></td>
+					</a></div>
  			';
  		}
  		
  		if($fin < $tam_usuarios){
  			$recibe_pagina++;
  			echo '
- 					<td ><div class="eliminar"><font size=$tam ><center>
- 					<a href = "Ver_Usuario.php?page='.$recibe_pagina.'">
+ 					<div >
+ 					 <a class="btn btn-primary" href = "Ver_Usuario.php?page='.$recibe_pagina.'">
  						Siguiente
-					</font></a></div></td>
+					</a></div>
  			';
  		}
- 		echo '<tr>';
+ 		echo '</tr>';
 
-		echo "</table>";
+		echo "";
  		
  	
  		
@@ -135,7 +141,7 @@
  	
  	}
 
-	echo "</table></div>";	
+	echo "</div></div>";	
 ?>
 		</div>
 		<script src="../js/jquery.js"></script>

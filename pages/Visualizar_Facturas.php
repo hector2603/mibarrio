@@ -11,7 +11,7 @@
 	echo"<h1><center>Visualizar Facturas</center></h1>";
 	$facturas = $m_factura->infoFacturas();
 
-	echo "<div><table border=1 class='table table-striped table-hover '>
+	echo "<div class='row table-responsive'><table border=1 class='table table-striped table-hover '>
 		<tr>
 			<td><font size=1></font></td>
 			<td><font size=$tam>Id Factura</font></td>

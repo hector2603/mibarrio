@@ -79,62 +79,84 @@ case 1:
 break;
 case 2:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Tama&ntilde;o 'Nombres' m&iacute;nimo: 2 caracteres</div><br>";
+    echo "<p>Error: Tama&ntilde;o 'Nombres' m&iacute;nimo: 2 caracteres</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break; 
 case 3:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Tama&ntilde;o 'Apellidos' m&iacute;nimo: 2 caracteres</div><br>";
+    echo "<p>Error: Tama&ntilde;o 'Apellidos' m&iacute;nimo: 2 caracteres</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 case 4:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Tama&ntilde;o 'Correo Electr&oacute;nico' m&iacute;nimo: 6 caracteres</div><br>";
+    echo "<p>Error: Tama&ntilde;o 'Correo Electr&oacute;nico' m&iacute;nimo: 6 caracteres</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 case 5:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Tama&ntilde;o 'Documento' m&iacute;nimo: 8 caracteres</div><br>";
+    echo "<p>Error: Tama&ntilde;o 'Documento' m&iacute;nimo: 8 caracteres</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 
 case 6:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Tama&ntilde;o 'Direcci&oacute;' m&iacute;nimo: 2 caracteres</div><br>";
+    echo "<p>Error: Tama&ntilde;o 'Direcci&oacute;' m&iacute;nimo: 2 caracteres</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 
 case 7:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Tama&ntilde;o 'Tel&eacute;fono' m&iacute;nimo: 8 caracteres</div><br>";
+    echo "<p>Error: Tama&ntilde;o 'Tel&eacute;fono' m&iacute;nimo: 8 caracteres</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
-
-
 case 8:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Validaci&oacute;n: 'Documento' tipo de dato debe ser Num&eacute;rico</div><br>";
+    echo "<p>Error: Validaci&oacute;n: 'Documento' tipo de dato debe ser Num&eacute;rico</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 
 case 9:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Validaci&oacute;n: 'Nombres' tipo de dato debe ser Alfab&eacute;tico</div><br>";
+    echo "<p>Error: Validaci&oacute;n: 'Nombres' tipo de dato debe ser Alfab&eacute;tico</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 case 10:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Validaci&oacute;n: 'Apellidos' tipo de dato debe ser Alfab&eacute;tico</div><br>";
+    echo "<p>Error: Validaci&oacute;n: 'Apellidos' tipo de dato debe ser Alfab&eacute;tico</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+          </div><br>";
 break;
-
-
 case 11:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Validaci&oacute;n: 'Tel&eacute;fono' tipo de dato debe ser Num&eacute;rico</div><br>";
+    echo "<p>Error: Validaci&oacute;n: 'Tel&eacute;fono' tipo de dato debe ser Num&eacute;rico</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 case 12:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Validaci&oacute;n: 'Correo Electr&oacute;nico' tipo de dato debe ser Alfanum&eacute;rico</div><br>";
+    echo "<p>Error: Validaci&oacute;n: 'Correo Electr&oacute;nico' tipo de dato debe ser Alfanum&eacute;rico</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 case 13:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Validaci&oacute;n: 'Direcci&oacute;n' tipo de dato debe ser Alfanum&eacute;rico</div><br>";
+    echo "<p>Error: Validaci&oacute;n: 'Direcci&oacute;n' tipo de dato debe ser Alfanum&eacute;rico</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 case 14:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado el Cliente.</i></h1>";
-    echo "<p>Error: Un Cliente con este Documento ya se encuentra registrado !!! Por favor intenta de nuevo</div><br>";
+    echo "<p>Error: Un Cliente con este Documento ya se encuentra registrado !!! Por favor intenta de nuevo</p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> 
+        </div><br>";
 break;
 }
 

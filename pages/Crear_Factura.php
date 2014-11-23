@@ -72,15 +72,15 @@
                         </div>
                     </div>
                     <hr>
-                    <div class='form-group' >
+                    <div class='form-group hidden-xs  hidden-sm hidden-md' >
                         <label  class='col-lg-3 control-label'><center> Producto </center></label>
                         <label  class='col-lg-2 control-label'><center>Nombre Producto </center></label>
                         <label  class='col-lg-2 control-label'><center>Cantidad</center></label>
                         <label  class='col-lg-2 control-label'><center>Precio Unidad</center></label>
                         <label  class='col-lg-2 control-label'><center>Precio Total </center></label>
 
+                <hr>
                     </div>
-                    <hr>
                     <div id="contenedorProductos" >  
                         <div class='form-group' id ='div_productos0'>
                             <label  class='col-lg-2 control-label'>Producto :</label>
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class='form-group' >
+                        <div class='form-group' >
                         <label  class='col-lg-2 control-label'>Mas Productos:</label>
                         <div class='col-lg-5'>
                             <button class="btn btn-success" type="button" onclick="nuevaCapa()" ><i class="fa fa-plus"></i></button>

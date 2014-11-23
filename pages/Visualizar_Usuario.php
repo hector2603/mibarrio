@@ -20,14 +20,14 @@ echo"<div class='row'>";
 		$nameUS = $c_producto2->get_Nombres();
 		$idUS = $c_producto2->get_Nid();
 		echo "
-
+<div class='col-lg-4'></div>
 		<div class=' well col-lg-4'>
 			<div class='row'>
-				<span class=''>Usuario: ".$nameUS."</span>
-			</div>	";
+				<label class=' col-lg-12 control-label'>Usuario: ".$nameUS."</label>
+			</div class='row' >	";
 					 echo "
 
-<br>
+
 					  	 <a class='btn btn-primary' href='Modificar_Usuario.php?gestion=".$idUS."'><div class='links2 links2-submit'>
 						 <b>Modificar Datos</b></div></a>
 					  
@@ -37,3 +37,9 @@ echo"<div class='row'>";
 
 		</div>";
 ?>
+		</div>
+		<script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/npm.js"></script>
+	</body>
+</html>
