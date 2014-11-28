@@ -264,7 +264,7 @@ class Modelo_Usuario{
 		///////////////////////////////////////////////////////////////////////////
 			
 		elseif($this->bd->insertar($sql))
-			$salida = true;
+			$salida = 1;
 		else $salida = 31;
 		
 

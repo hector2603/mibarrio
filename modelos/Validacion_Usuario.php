@@ -26,9 +26,9 @@ class Validar_Usuario{
 		echo '<p>numerror = '.$num_error;
 		echo '<p>perfil = '.$perfil;*/
 		if($num_error == 1){
-			header("Location: ../pages/Crear_Usuario.php?gestion=1");
+			header("Location: ../pages/Crear_Usuario.php?gestion=exito1");
 		}else{
-			header("Location: ../pages/Crear_Usuario.php?gestion=".$num_error);
+			header("Location: ../pages/Crear_Usuario.php?gestion=error".$num_error);
 		}
 	}
 
@@ -55,9 +55,9 @@ class Validar_Usuario{
 		echo '<p>numerror = '.$num_error;
 		echo '<p>perfil = '.$perfil;
 		*/if($num_error == 1){
-			header("Location: ../pages/Modificar_Usuario.php?gestion=1");
+			header("Location: ../pages/Modificar_Usuario.php?gestion=exito1");
 		}else{
-			header("Location: ../pages/Modificar_Usuario.php?gestion=".$num_error);
+			header("Location: ../pages/Modificar_Usuario.php?gestion=error".$num_error);
 		}
 	}
 
@@ -71,9 +71,9 @@ class Validar_Usuario{
 		$num_error = $m_usuario->cambiar_Contra($num_id,$password);
 
 		if($num_error == 1){
-			header("Location: ../pages/Modificar_Usuario.php?gestion=1");
+			header("Location: ../pages/Modificar_Usuario.php?gestion=exito1");
 		}else{
-			header("Location: ../pages/Modificar_Usuario.php?gestion=".$num_error);
+			header("Location: ../pages/Modificar_Usuario.php?gestion=error".$num_error);
 
 		}
 	}

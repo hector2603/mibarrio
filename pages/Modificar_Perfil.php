@@ -13,6 +13,8 @@
 
 	// se verifican los permisos del usuario.
 if($c_perfil->get_PermisoPerfiles()){
+
+
 		// se imprime el form y la tabla que contendra los valores modificables del perfil que se selecciono
  		echo"<form action='../script/Modificar_Perfil.php?perfil=".$nombre."' method='post' class='form-horizontal'>";
 
@@ -31,6 +33,7 @@ if($c_perfil->get_PermisoPerfiles()){
                         </td>
                         <td > 
                         	<input type='text' name='newnomb' value='".$nombre."' required='required' maxlength=50/>
+                        	<span class='help-block'>Ayuda: el nombre del perfil debe contener dos letras minimo y el perfil debe tener por lo menos un permiso.</span>
                         </td>
                      </tr>	
                 </table><br>";

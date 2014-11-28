@@ -129,8 +129,7 @@
 		<div class="col-md-6"></div>
 		<div class="col-md-6"><br><br><br>
 			<div class="navbar  navbar-default "><!-- navbar-fixed-bottom -->
-				<?php 
-					include_once '../modelos/Modelo_Usuario.php';
+<?php include_once '../modelos/Modelo_Usuario.php';
 					include_once '../controladores/Controlador_Usuario.php';
 					include_once '../controladores/Controlador_Perfil.php';
 					include_once '../modelos/Modelo_Perfil.php';
@@ -162,7 +161,7 @@
 							header("Location: ../index.php");
 					else{
 						// se imprime la imagen del usuario que inicio sesion
-				?>
+?>
 					 <div class="navbar-header">
 					 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
 						      <span class="icon-bar"></span>
@@ -240,7 +239,7 @@
 						 		</a> 
 						 		<ul class='dropdown-menu'>
 			 			          <li><a href='Crear_Perfil.php?gestion=crearPerfil'><b>Crear Perfil</b></a></li>
-						          <li><a href='Crear_Perfil.php?gestion=visualizar'><b>Visualizar Perfil</b></a></li>
+						          <li><a href='Ver_Perfil.php?gestion=visualizar'><b>Visualizar Perfil</b></a></li>
 						 		</ul>
 						 	</li> ";
 //Gestion_Perfil.php?gestion=perfil

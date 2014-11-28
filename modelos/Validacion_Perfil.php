@@ -44,13 +44,33 @@ class Validar_Perfil{
 		include ("../pages/perfil.php"); 
 		if($c_perfil->get_PermisoPerfiles()){
 	 	$b_perfil=new Modelo_Perfil();
-			echo"$nombre";
+			
 			// elimina el perfil con el metodo correspondiente, en caso de arrojar false, regresa a crear perfil 
 			// con el error correspondiente
 			if($b_perfil->eliminar_Perfil($nombre)){
+
+			if (headers_sent()) {
+
+				echo "
+				<div class='alert alert-warning alert-dismissable'>
+				  <button type='button' class='close' data-dismiss='alert'>&times;</button>
+				 Se ha borrado el perfil.
+				 <a href='../pages/Ver_Perfil.php?gestion=visualizar' class='alert-link'>Volver</a>
+				</div>";
+    // las cabeceras ya se han enviado, no intentar añadir una nueva
+			}
+			else {
 				header("Location: ../pages/Crear_Perfil.php?gestion=exito2");
-			}else{
-				header("Location: ../pages/Crear_Perfil.php?gestion=error2");
+			    // es posible añadir nuevas cabeceras HTTP
+			}	
+				
+			
+    // es posible añadir nuevas cabeceras HTTP
+				
+				
+			}
+			else{
+			header("Location: ../pages/Crear_Perfil.php?gestion=error2");
 			}
 	 		
 	 	}else
@@ -59,5 +79,4 @@ class Validar_Perfil{
 	}
 
 }
-
 ?>
