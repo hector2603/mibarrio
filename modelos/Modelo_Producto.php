@@ -74,7 +74,7 @@ class Modelo_Producto{
 		elseif(((strlen($this->producto->get_valor_Iva()) > 2)||(strlen($this->producto->get_valor_Iva()) < 1)))	$salida = 5;
 		elseif(((strlen($this->producto->get_Precio_Compra()) > 10)||(strlen($this->producto->get_Precio_Compra()) < 2))) $salida = 6;
 		elseif(((strlen($this->producto->get_Precio_Venta()) > 10)||(strlen($this->producto->get_Precio_Venta()) < 2))) $salida = 7;
-		elseif(((strlen($this->producto->get_Cantidad()) > 10)||(strlen($this->producto->get_Cantidad()) < 2))) $salida = 8;
+		elseif(((strlen($this->producto->get_Cantidad()) > 10)||(strlen($this->producto->get_Cantidad()) < 1))) $salida = 8;
 
 		// Validacion de los tipos de datos (Numérico,Alfabético,Alfanumérico)
 		elseif(!($valida->is_Alphanumeric($this->producto->get_Id()))) $salida = 9;
@@ -119,7 +119,7 @@ class Modelo_Producto{
 		elseif(((strlen($this->producto->get_valor_Iva()) > 6)||(strlen($this->producto->get_valor_Iva()) < 3)))	$salida = 5;
 		elseif(((strlen($this->producto->get_Precio_Compra()) > 10)||(strlen($this->producto->get_Precio_Compra()) < 2))) $salida = 6;
 		elseif(((strlen($this->producto->get_Precio_Venta()) > 10)||(strlen($this->producto->get_Precio_Venta()) < 2))) $salida = 7;
-		elseif(((strlen($this->producto->get_Cantidad()) > 10)||(strlen($this->producto->get_Cantidad()) < 2))) $salida = 8;
+		elseif(((strlen($this->producto->get_Cantidad()) > 10)||(strlen($this->producto->get_Cantidad()) < 1))) $salida = 8;
 
 		// Validacion de los tipos de datos (Numérico,Alfabético,Alfanumérico)
 		elseif(!($valida->is_Alphanumeric($this->producto->get_Id()))) $salida = 9;
@@ -169,7 +169,7 @@ class Modelo_Producto{
 		elseif((strlen($this->producto->get_valor_Iva())> 6 )||(strlen($this->producto->get_valor_Iva()) < 3))	$salida = 5;
 		elseif(((strlen($this->producto->get_Precio_Compra()) > 10)||(strlen($this->producto->get_Precio_Compra()) < 2))) $salida = 6;
 		elseif(((strlen($this->producto->get_Precio_Venta()) > 10)||(strlen($this->producto->get_Precio_Venta()) < 2))) $salida = 7;
-		elseif(((strlen($this->producto->get_Cantidad()) > 10)||(strlen($this->producto->get_Cantidad()) < 2))) $salida = 8;
+		elseif(((strlen($this->producto->get_Cantidad()) > 10)||(strlen($this->producto->get_Cantidad()) < 1))) $salida = 8;
 
 		// Validacion de los tipos de datos (Numérico,Alfabético,Alfanumérico)
 		elseif(!($valida->is_Alphanumeric($this->producto->get_Id()))) $salida = 9;
