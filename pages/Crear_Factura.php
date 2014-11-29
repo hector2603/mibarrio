@@ -31,14 +31,14 @@
                         <div class='col-lg-2'><?php 
                             echo"<label  class=' col-lg-1 form-control'>".$c_usuario->get_Nombres()."</label>";
                             echo"<input class='hide' name='id_vende' value='".$c_usuario->get_Nid()."'/>";
-                            echo"<input class='hide' id='campostotales' value='1'/>";
+                            echo"<input class='hide' id='campostotales' value=''/>";
 
                             ?>
                         </div>
                         <label  class='col-lg-1 control-label'>Fecha: </label>
                         <div class='col-lg-3'><?php 
                             echo"<label  class=' col-lg-2 form-control'>".date("d ")." De ".date(" F ")." Del ".date("Y")."</label>";
-                            echo"<input class='hide' name='fecha' value='".date("d F Y ")."'/>";
+                            echo"<input class='hide' name='fecha' value='".date("Y")."-".date("m")."-".date("d")."'/>";
                             ?>
                         </div>
                         <label  class='col-lg-2 control-label'>Factura # : </label>
@@ -47,7 +47,7 @@
                             $m_factura = new Modelo_Factura($c_factura);
                             $cantidad = $m_factura->getNumeroFacturas()+1;
                             echo"<label  class=' col-lg-1 form-control'>".$cantidad."</label>";
-                            echo"<input class='hide' name='id_Factura' value='".$cantidad."'/>";
+                            echo"<input class='hide' id='idfac' name='id_Factura' value='".$cantidad."'/>";
                             ?>
                         </div>
 
@@ -132,30 +132,44 @@
 
 break;
 case 1:
-	echo "<div class='alert alert-dismissable alert-success'><h1><i>Factura Creada</i></h1></div'>";
+	echo "<div class='alert alert-dismissable alert-success'><h1><i>Factura Creada</i></h1>
+            <a class='btn btn-primary' href='Visualizar_Facturas.php'> Ok</a>
+        </div'>";
 break; 
 case 2:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado La Factura.</i></h1>";
-    echo "<p>Error: El id de la factura ya existe </div><br>";
+    echo "<p>Error: El id de la factura ya existe </p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a>
+        </div><br>";
 break;
 case 3:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado La Factura.</i></h1>";
-    echo "<p>Error: Los Productos Ya Existen </div><br>";
+    echo "<p>Error: Los Productos Ya Existen </p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a>
+        </div><br>";
 break;
 case 4:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha Modificado La Factura.</i></h1>";
-    echo "<p>Error: La factura debe tener 1 Producto como minimo </div><br>";
+    echo "<p>Error: La factura debe tener 1 Producto como minimo </p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a>
+        </div><br>";
 break;
 case 5:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha Modificado La Factura.</i></h1>";
-    echo "<p>Error: No se encontro la Factura  </div><br>";
+    echo "<p>Error: No se encontro la Factura  </p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a>
+        </div><br>";
 break;
 case 6:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha Modificado La Factura.</i></h1>";
-    echo "<p>Error: No se modificaron los productos  </div><br>";
+    echo "<p>Error: No se modificaron los productos  </p>
+            <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a>
+        </div><br>";
 break;
 case 7:
-    echo "<div class='alert alert-dismissable alert-success'><h1><i>La Factura Fue Modificada </i></h1></div'>";
+    echo "<div class='alert alert-dismissable alert-success'><h1><i>La Factura Fue Modificada </i></h1>
+            <a class='btn btn-primary' href='Visualizar_Facturas.php'> Ok</a>
+        </div'>";
 break;
 }
 

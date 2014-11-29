@@ -4,7 +4,8 @@
 	    $c_producto = new Controlador_Producto();
         $m_producto = new Modelo_Producto($c_producto);
         $id_producto = $_REQUEST['id_pro']; 
+        $id_factura = $_REQUEST['id_fac']; 
         //echo $id_producto;
-       	$precio = $m_producto->precio_Producto($id_producto);
+       	$precio = $m_producto->precio_Producto($id_producto,$id_factura);
        	echo $precio; 
 ?>

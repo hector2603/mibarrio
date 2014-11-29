@@ -10,13 +10,25 @@
 		switch ($usuario) {
 			case "exito":
 			 	if($c_perfil->get_PermisoSistema()){
-					echo "<h1><i>Se ha eliminado el Usuario.</i></h1>";
+					echo "
+					<div class='alert alert-danger alert-dismissable'>
+				  	<button type='button' class='close' data-dismiss='alert'>&times;</button>
+				  	Se ha eliminado el Usuario.
+				  	<a href=".$_SERVER["HTTP_REFERER"]." class='alert-link'>Volver</a>
+					</div>";
 			 	}else
 					echo "<h1><i>Esto no te pertenece.</i></h1>";
+
 			break; 
 			case "error":
 			 	if($c_perfil->get_PermisoSistema()){
-					echo "<h1><i>No se ha eliminado el usuario.</i></h1>";
+					echo "
+					<div class='alert alert-danger alert-dismissable'>
+				  	<button type='button' class='close' data-dismiss='alert'>&times;</button>
+				  	No se ha eliminado el Usuario.
+				  	<a href=".$_SERVER["HTTP_REFERER"]." class='alert-link'>Volver</a>
+					</div>";
+
 			 	}else
 					echo "<h1><i>Esto no te pertenece.</i></h1>";
 			break;

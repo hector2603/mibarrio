@@ -167,11 +167,13 @@ case 1:
 break; 
 case 2:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha creado La Factura.</i></h1>";
-    echo "<p>Error: El id de la factura ya existe </div><br>";
+    echo "<p>Error: No se registro La Factura, no se modifico la cantidad de los productos</p>
+    <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> </div><br>";
 break;
 case 3:
     echo "<div class='alert alert-dismissable alert-danger'><h1><i>No se ha registrado La Factura.</i></h1>";
-    echo "<p>Error: la cantidad de productos en el stock no es suficiente para registrar la factura</div><br>";
+    echo "<p>Error: la cantidad de productos en el stock no es suficiente para registrar la factura</p>
+    <a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a> </div><br>";
 }
 
 

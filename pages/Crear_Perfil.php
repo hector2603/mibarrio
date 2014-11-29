@@ -2,7 +2,7 @@
 	//incluye el menu y demas cosas contenidas en perfil.php
 	include ("perfil.php"); 
 	//inicio de la div de contenido, cajon central
-echo"<div class='row well '>";
+echo"<div class='row '>";
 //segun sea el caso en el header indica la acciona realizar
 $recibe_pagina=$_REQUEST['gestion'];
 

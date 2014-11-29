@@ -66,6 +66,7 @@
 	{	
 		var cantidad = $("#cantidad"+control).val();
 		var product = $("#select_productos"+control).val();
+		var idfac = $("#idfac").val();
 		if($.isNumeric( cantidad ) && cantidad>0){ // verifica que sea numero y que sea mayor de 0
 
 			var precioFactura = $("#precioTotalfactura").val(); // variable donde se guarda el precio total de la factura que tiene ese momento 
@@ -80,7 +81,8 @@
 		   	$("#precioTotalfactura").val(parseInt(precioFactura)-parseInt(preciototalProducto));// asigna al label el valor total de la factura 
 			$.post("../script/Buscar_Precio_Producto.php",
 	  			{
-			    id_pro:product	
+			    id_pro:product,
+			    id_fac:idfac
 			  	},
 			  function(data,status){
 			  	var cant = data.substr(data.indexOf("<l>")+4);// saca la cantidad del producto que le llega por el ajax 
@@ -93,7 +95,7 @@
 			  		$("#cantidad"+control).val("");
 			  		$("div #precioUnidad"+control).val("");
 			  		$("#precioTotal"+control).val("");
-			  		alert("La cantidad del producto en la fila "+(control+1)+" no esta disponible");
+			  		alert("La cantidad del producto en la fila "+(control+1)+" no esta disponible\n La cantidad disponible es: "+cant);
 			  	}
 			  });
 		}else{
@@ -102,19 +104,21 @@
 	}
 
 	$(document).ready(function(){
+
 		var num_campos = parseInt($("#campostotales").val());
 		if ($("#campostotales").val()!="")
+		{
 			campos = num_campos-1;
-
-		if(campos!=0){
 			var aux = 0;
 			for(var i = 0;i<=campos;i++){
 				aux += parseInt($("#precioTotal"+i).val());
 			}
 			$("#precioTotalfactura").val(aux);
+			
 		}else{
 			$("#precioTotalfactura").val(0);
 		}
+		//$("#precioTotalfactura").val();
 	});
 
 

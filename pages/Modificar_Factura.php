@@ -38,7 +38,7 @@
                         <label  class='col-lg-2 control-label'>Vendedor:</label>
                         <div class='col-lg-2'><?php 
                             echo"<label  class=' col-lg-1 form-control'>".$info_factura[0][3]."</label>";
-                            echo"<input class='hide' name='id_vende' value='".$info_factura[0][2]."'/>";
+                            echo"<input class='hide'  name='id_vende' value='".$info_factura[0][2]."'/>";
                             echo"<input class='hide' id='campostotales' value='".count($info_productos)."'/>";
 
                             ?>
@@ -52,7 +52,7 @@
                         <label  class='col-lg-2 control-label'>Factura # : </label>
                         <div class='col-lg-1'><?php 
                             echo"<label  class=' col-lg-1 form-control'>".$info_factura[0][0]."</label>";
-                            echo"<input class='hide' name='id_Factura' value='".$info_factura[0][0]."'/>";
+                            echo"<input class='hide' id='idfac' name='id_Factura' value='".$info_factura[0][0]."'/>";
                             ?>
                         </div>
 
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class='form-group' >
+                    <div class='form-group hidden-xs  hidden-sm hidden-md' >
                         <label  class='col-lg-2 control-label'><center> Producto </center></label>
                         <label  class='col-lg-3 control-label'><center>Nombre Producto </center></label>
                         <label  class='col-lg-2 control-label'><center>Cantidad</center></label>

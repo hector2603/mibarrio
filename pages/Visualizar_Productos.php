@@ -36,7 +36,7 @@
 			<td><font size=$tam>Iva</font></td>
 			<td><font size=$tam>Valor Iva</font></td>
 			<td><font size=$tam>Precio Compra</font></td>
-			<td><font size=$tam>Precio Venta</font><>/td
+			<td><font size=$tam>Precio Venta</font></td>
 			<td><font size=$tam>Cantidad</font></td>
 			<td><font size=$tam>Estado</font></td>
 		</tr>

@@ -38,6 +38,7 @@ echo"<div class='contenido'>";
                         </td>
                         <td>
                           <input type='password' name='pass' value='' placeholder='Contrase&ntilde;a' required='required' maxlength=8/>
+                          <span class='help-block'>Ayuda: la contraseña debe tener un minimo de 5 caracteres (Alfanum&eacute;rico).</span>
                         </td>  
                     </tr>
 

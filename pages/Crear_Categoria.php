@@ -5,27 +5,27 @@
 	$numero_error=$_REQUEST['gestion'];
 
 
-	echo"<div class='row well'>";
+
 switch ($numero_error){ 
  default:
  	//todo lo de Modificar el usuario
  	$_perfi = $c_usuario->get_Perfil();
+    echo"<div class='row panel  col-lg-6 col-lg-offset-3'>
+        <div class=' panel panel-primary '>";
+                                
+    echo "<div class='panel-heading'>
+                <h2 class='panel-title text-center'>Crear Categoria</h2>
+            </div>
+            <div class=' panel-body'>";
  	 echo"<form action='../script/Crear_Categoria.php' method='post'>";
 
-		echo "<div >
-                <table class='table table-striped table-hover '>
-                	<tr>
-                        <td colspan='2'>
-                            Crear Categoria
-                        </td>
-                     <tr> 
-
+		echo "<table class='table table-striped table-hover '>
                       <tr>
                         <td>
                             Id:
                         </td>
                         <td>
-                            <input type='text' name='id' class='form-control' placeholder='Id' required='required' maxlength=30/>
+                            <input type='text' name='id' class='form-control' placeholder='minimo 4 caracteres' required='required' maxlength=30/>
                         </td>
                     </tr>
                     <tr>
@@ -33,7 +33,7 @@ switch ($numero_error){
                             Nombre:
                         </td>
                         <td>
-                        	<input type='text' name='nombre' class='form-control' placeholder='Nombre' required='required' maxlength=30/>
+                        	<input type='text' name='nombre' class='form-control' placeholder='minimo 2 caracteres' required='required' maxlength=30/>
                         </td>
                     </tr>
                     <tr>
@@ -41,49 +41,60 @@ switch ($numero_error){
                             Descripcion:
                         </td>
                         <td>
-                        	<input type='text' name='descripcion' class='form-control' placeholder='Descripcion' required='required' maxlength=500/>
+                        	<input type='text' name='descripcion' class='form-control' placeholder='minimo 15 caracteres' required='required' maxlength=500/>
                         </td>  
                     </tr>                  
                 </table>
 					  <input type='submit' name='crear' class='btn btn-primary' value='Crear Categoria'>
+                      <button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>
             </div><br><br>";
 
 
 
-		echo"</fomr>";
+		echo"</fomr>
+        </div>
+        </div>";
 
 
 break;
-case 1:
+case "error1":
 	echo "<h1><i>Se ha creado la Categoria.</i></h1>";
+    echo "<a href='/mibarrio/pages/Visualizar_Categorias.php?page=1' class='btn btn-default'>Ok</a>";
 break; 
-case 2:
+case "error2":
     echo "<div class='login-help'><h1><i>No se ha creado la Categoria.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Id' m&iacute;nimo: 5 caracteres y maximo 13 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 3:
+case "error3":
     echo "<div class='login-help'><h1><i>No se ha creado la Categoria.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Nombre' m&iacute;nimo: 2 caracteres y maximo 30 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 4:
+case "error4":
     echo "<div class='login-help'><h1><i>No se ha creado la Categoria.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Descripcion' m&iacute;nimo: 15 caracteres y maximo 500 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 5:
+case "error5":
     echo "<div class='login-help'><h1><i>No se ha creado la Categoria.</i></h1>";
     echo "<p>Error: 'Id' debe ser numerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 6:
+case "error6":
     echo "<div class='login-help'><h1><i>No se ha creado la Categoria.</i></h1>";
     echo "<p>Error: 'Nombre' debe ser alfanumerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 7:
+case "error7":
     echo "<div class='login-help'><h1><i>No se ha creado la Categoria.</i></h1>";
     echo "<p>Error: 'Descripcion' debe ser alfanumerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 8:
+case "error8":
     echo "<div class='login-help'><h1><i>No se ha creado la Categoria.</i></h1>";
     echo "<p>Error: 'Ya existe una categoria con el mismo Id o el mismo Nombre</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
 }
 ?>

@@ -25,9 +25,9 @@ class Validar_Producto{
 		echo '<p>perfil = '.$perfil;*/
 		
 		if($num_error == 1){
-			header("Location: ../pages/Crear_Producto.php?gestion=1");
+			header("Location: ../pages/Crear_Producto.php?gestion=error1");
 		}else{
-			header("Location: ../pages/Crear_Producto.php?gestion=".$num_error);
+			header("Location: ../pages/Crear_Producto.php?gestion=error".$num_error);
 		}
 	}
 
@@ -50,9 +50,9 @@ class Validar_Producto{
 		if($categoria)
 			$num_error = $m_producto2->actualizar_Datos_Producto($_REQUEST['id']);
 		if($num_error == 1){
-			header("Location: ../pages/Modificar_Producto.php?gestion=1");
+			header("Location: ../pages/Modificar_Producto.php?gestion=error1");
 		}else{
-			header("Location: ../pages/Modificar_Producto.php?gestion=".$num_error);
+			header("Location: ../pages/Modificar_Producto.php?gestion=error".$num_error);
 		}
 	}
 }

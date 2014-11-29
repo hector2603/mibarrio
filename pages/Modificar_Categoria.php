@@ -21,29 +21,33 @@
   //else $documento = $c_categoria->get_Nid();
 
 
-echo"<div class='row well'>";
 switch ($numero_error){ 
  default:
   //todo lo de Modificar el usuario
   $_perfi = $c_categoria2->get_Id();
   /*if($c_perfil->get_PermisoSistema()){
     echo"<form action='../controladores-php/Controlador_Modificar_Usuario.php?perfi=0' method='post'>";
-  }else*/ echo"<form action='../script/Editar_Categoria.php?doc=".$c_categoria2->get_Id()."&perfi=".$_perfi."' method='post'>";
+  }else*/ 
+  echo"<div class='row panel  col-lg-6 col-lg-offset-3'>
+        <div class=' panel panel-primary '>";
+                                
+  echo "<div class='panel-heading'>
+                <h2 class='panel-title text-center'>Modificar Categoria</h2>
+            </div>
+            <div class=' panel-body'>";
+
+  echo"<form action='../script/Editar_Categoria.php?doc=".$c_categoria2->get_Id()."&perfi=".$_perfi."' method='post'>";
 
     echo "<div  >
                 <table class='table table-striped table-hover '>
-                  <tr>
-                        <td colspan='2'>
-                            Modificar Categoria
-                        </td>
-                     <tr> 
+
                      
                     <tr>
                         <td>
                             Nombre:
                         </td>
                         <td >";
-                         echo "<input type='text' name='nombre' class='form-control' value='".$c_categoria2->get_Nombre()."' placeholder='Nombre' required='required' maxlength=30 />";
+                         echo "<input type='text' name='nombre' class='form-control' value='".$c_categoria2->get_Nombre()."' placeholder='minimo 4 caracteres' required='required' maxlength=30 />";
                             echo "
                         </td>
                     </tr>
@@ -53,50 +57,61 @@ switch ($numero_error){
                            Descripcion:
                         </td>
                         <td>
-                          <input type='text' name='descripcion' class='form-control' value='".$c_categoria2->get_Descripcion()."' placeholder='Descripcion' required='required' maxlength=500/>
+                          <input type='text' name='descripcion' class='form-control' value='".$c_categoria2->get_Descripcion()."' placeholder='minimo 15 caracteres' required='required' maxlength=500/>
                         </td>  
                     </tr>                
 
                 </table>
             <input type='submit' name='crear' class='btn btn-primary' value='Actualizar Categoria'>
             <input type='reset' name='borrar' class='btn btn-primary' value='Restaurar Campos'>
+            <button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>
             </div><br><br>";
 
 
 
-    echo"</fomr>";
+    echo"</fomr>
+    </div>
+    </div>";
 
 break;
-case 1:
+case "error1":
   echo "<h1><i>Se ha modificado la Categoria.</i></h1>";
+  echo "<a href='/mibarrio/pages/Visualizar_Categorias.php?page=1' class='btn btn-primary'>Ok</a>";
 break; 
-case 2:
+case "error2":
     echo "<div class='login-help'><h1><i>No se ha modificado la Categoria.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Id' m&iacute;nimo: 5 caracteres y maximo 13 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 3:
+case "error3":
     echo "<div class='login-help'><h1><i>No se ha modificado la Categoria.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Nombre' m&iacute;nimo: 2 caracteres y maximo 30 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 4:
+case "error4":
     echo "<div class='login-help'><h1><i>No se ha modificado la Categoria.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Descripcion' m&iacute;nimo: 15 caracteres y maximo 500 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 5:
+case "error5":
     echo "<div class='login-help'><h1><i>No se ha modificado la Categoria.</i></h1>";
     echo "<p>Error: 'Id' debe ser numerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 6:
+case "error6":
     echo "<div class='login-help'><h1><i>No se ha modificado la Categoria.</i></h1>";
     echo "<p>Error: 'Nombre' debe ser alfanumerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 7:
+case "error7":
     echo "<div class='login-help'><h1><i>No se ha modificado la Categoria.</i></h1>";
     echo "<p>Error: 'Descripcion' debe ser alfanumerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 8:
+case "error8":
     echo "<div class='login-help'><h1><i>No se ha modificado la Categoria.</i></h1>";
     echo "<p>Error: 'Ya existe una categoria con el mismo Nombre</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
 }
 ?>

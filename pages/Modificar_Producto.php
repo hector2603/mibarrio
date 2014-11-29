@@ -14,28 +14,32 @@
     if($c_perfil->get_PermisoInventario()){
         $m_producto->buscar_Producto($numero_error);
     }
-echo"<div class='row well col-lg-6 col-lg-offset-3'>";
 switch ($numero_error){ 
  default:
   //todo lo de Modificar el usuario
   //$_perfi = $c_producto->get_Perfil();
   /*if($c_perfil->get_PermisoSistema()){
     echo"<form action='../controladores-php/Controlador_Modificar_Usuario.php?perfi=0' method='post'>";
-  }else*/ echo"<form action='../script/Editar_Producto.php?id=".$c_producto->get_Id()."' method='post'>";
+  }else*/
+    echo"<div class='row col-lg-6 col-lg-offset-3'>
+    <div class=' panel panel-primary '>";
 
-    echo "<div class='CSSTableGenerator' >
+    echo "<div class='panel-heading'>
+                <h2 class='panel-title text-center'>Modificar Producto</h2>
+            </div>
+            <div class=' panel-body'>";
+
+   echo"<form action='../script/Editar_Producto.php?id=".$c_producto->get_Id()."' method='post'>";
+
+    echo "
                 <table class='table table-striped table-hover '>
-                  <tr>
-                        <td colspan='2'>
-                            Modificar Producto
-                        </td>
-                    <tr>
+
                     <tr>
                         <td>
                             Nombre:
                         </td>
                         <td>
-                          <input type='text' name='nombre' class='form-control' value='".$c_producto->get_Nombre()."' placeholder='Nombre' required='required' maxlength=30/>
+                          <input type='text' name='nombre' class='form-control' value='".$c_producto->get_Nombre()."' placeholder='minimo 5 caracteres' required='required' maxlength=30/>
                         </td>  
                     </tr>
                     <tr>
@@ -43,7 +47,7 @@ switch ($numero_error){
                             Descripcion:
                         </td>
                         <td>
-                          <input type='text' name='descripcion' class='form-control' value='".$c_producto->get_Descripcion()."' placeholder='Descripcion' required='required' maxlength=500/>
+                          <input type='text' name='descripcion' class='form-control' value='".$c_producto->get_Descripcion()."' placeholder='minimo 15 caracteres' required='required' maxlength=500/>
                         </td>
                     </tr>
                     <tr>
@@ -80,7 +84,7 @@ switch ($numero_error){
                             Valor Iva:
                         </td>
                         <td>
-                          <input type='text' name='valorIva'class='form-control' id='valorIva' value='".$c_producto->get_Valor_Iva()."' placeholder='Valor Iva' required='required' onblur = 'myFunction3()'' maxlength=6/>
+                          <input type='text' name='valorIva'class='form-control' id='valorIva' value='".$c_producto->get_Valor_Iva()."' placeholder='minimo 3 caracteres' required='required' onblur = 'myFunction3()'' maxlength=6/>
                         </td>  
                     </tr>               
                     <tr>
@@ -88,7 +92,7 @@ switch ($numero_error){
                             Precio de Compra:
                         </td>
                         <td>
-                          <input type='text' name='precioCompra' class='form-control'value='".$c_producto->get_Precio_Compra()."' placeholder='Precio de Compra' required='required' maxlength=10/>
+                          <input type='text' name='precioCompra' class='form-control'value='".$c_producto->get_Precio_Compra()."' placeholder='minimo 2 caracteres' required='required' maxlength=10/>
                         </td>  
                     </tr>
                      <tr>
@@ -96,7 +100,7 @@ switch ($numero_error){
                             Precio de Venta:
                         </td>
                         <td>
-                          <input type='text' name='precioVenta'class='form-control' value='".$c_producto->get_Precio_Venta()."' placeholder='Precio de Venta' required='required' maxlength=10/>
+                          <input type='text' name='precioVenta'class='form-control' value='".$c_producto->get_Precio_Venta()."' placeholder='minimo 2 caracteres' required='required' maxlength=10/>
                         </td>  
                     </tr>
                                 
@@ -105,7 +109,7 @@ switch ($numero_error){
                             Cantidad:
                         </td>
                         <td>
-                          <input type='text' name='cantidad' class='form-control'value='".$c_producto->get_Cantidad()."' placeholder='Cantidad' required='required' maxlength=10/>
+                          <input type='text' name='cantidad' class='form-control'value='".$c_producto->get_Cantidad()."' placeholder='minimo 2 caracteres' required='required' maxlength=10/>
                         </td>  
                     </tr>
                        <tr>
@@ -132,6 +136,7 @@ switch ($numero_error){
                 </table>
             <input type='submit' name='crear' class='btn btn-primary' value='Actualizar Producto'>
             <input type='reset' name='borrar' class='btn btn-primary' value='Restaurar Campos'>
+            <button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>
             </div>
               <script>
                  var opcion = 0;
@@ -149,68 +154,85 @@ switch ($numero_error){
                 }
             </script>
             ";
-    echo"</form>";
+    echo"</form>
+    </div>
+    </div>";
 
 
 break;
-case 1:
+case "error1":
     echo "<h1><i>Se ha modificado el Producto.</i></h1>";
+    echo "<a href='/mibarrio/pages/Visualizar_Productos.php?page=1' class='btn btn-primary'>Ok</a>";
 break; 
-case 2:
+case "error2":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Id' m&iacute;nimo: 5 caracteres y maximo 15 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 3:
+case "error3":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Nombre' m&iacute;nimo: 4 caracteres y maximo 30 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 4:
+case "error4":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Descripcion' m&iacute;nimo: 15 caracteres y maximo 500 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 5:
+case "error5":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Valor Iva' m&iacute;nimo: 3 caracteres y maximo 6 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 6:
+case "error6":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Precio de Compra' m&iacute;nimo: 2 caracteres y maximo 10 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 7:
+case "error7":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Precio de Venta' m&iacute;nimo: 2 caracteres y maximo 10 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 8:
+case "error8":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Tama&ntilde;o 'Cantidad' m&iacute;nimo: 2 caracteres y maximo 10 caracteres</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 9:
+case "error9":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Id debe ser alfanumerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 10:
+case "error10":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Nombre debe ser alfabetico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 11:
+case "error11":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error:Descripcion debe ser alfanumerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 12:
+case "error12":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Precio de Compra debe ser numerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 13:
+case "error13":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Precio de Venta debe ser numerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 14:
+case "error14":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Cantidad debe ser numerico</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
-case 15:
+case "error15":
     echo "<div class='login-help'><h1><i>No se ha modificado el Producto.</i></h1>";
     echo "<p>Error: Ya existe un Producto con el mismo Id</div><br>";
+    echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 }
 
 ?>

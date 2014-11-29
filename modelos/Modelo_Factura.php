@@ -218,7 +218,6 @@ class Modelo_Factura{
 
 			$info_Factura = $this->infoFactura_infoCliente($id_fac);
 			$info_Productos = $this->productos_Factura2($id_fac);
-
 			$cantidad = true ;// boolean que se cambiara a false si algun producto no tiene la cantidad suficiente en el stock
 			for($i = 0; $i<count($info_Productos);$i++){
 				if($info_Productos[$i][3]>$this->cantidad_producto($info_Productos[$i][2])){
@@ -234,12 +233,11 @@ class Modelo_Factura{
 				$salida = 3;
 			}
 			if($salida == 1){
-				$sql = "UPDATE `factura` SET `estado`='Registrada' WHERE `idfactura` = $id_fac";
+				$sql = "UPDATE `factura` SET `estado`='Registrada' WHERE `idfactura` = '$id_fac'";
 				if($this->bd->insertar($sql))
 					$salida = 1;
 				else $salida = 2;
 			}
-		$this->bd->desconectar();
 		return $salida;
 
 	}
@@ -255,10 +253,10 @@ class Modelo_Factura{
 	public function actualizar_cantidad_producto($id_pro,$cantidad){// update el produco, cantidad es el numero que se disminuira en la base de datos
 
 		$cantidadFinal = intval($this->cantidad_producto($id_pro))-$cantidad; // se le resta a la cantidad del producto inicial, la cantidad que entro como parametro 
-		$sql = "UPDATE `productos` SET `cantidad`=$cantidadFinal WHERE `id` = $id_pro";
+		$sql = "UPDATE `productos` SET `cantidad`=$cantidadFinal WHERE `id` = '$id_pro'";
 		if($this->bd->insertar($sql))
 			$salida = 1;
-		else $salida = 2;
+		else $salida = 5;
 		return $salida;
 
 	}

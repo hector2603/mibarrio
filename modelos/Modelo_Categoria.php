@@ -45,7 +45,7 @@ class Modelo_Categoria{
 		$valida = new Validacion_Datos(); // <- Para validar los tipos de datos
 		// Validacion de los minimos
 		if((strlen($this->categoria->get_Id()) > 13)||(strlen($this->categoria->get_Id()) < 5)) $salida = 2;
-		elseif((strlen($this->categoria->get_Nombre()) > 30)||(strlen($this->categoria->get_Nombre()) < 2)) $salida = 3;
+		elseif((strlen($this->categoria->get_Nombre()) > 30)||(strlen($this->categoria->get_Nombre()) < 4)) $salida = 3;
 		elseif((strlen($this->categoria->get_Descripcion()) > 500)||(strlen($this->categoria->get_Descripcion()) < 15)) $salida = 4;
 		
 		// Validacion de los tipos de datos (Numérico,Alfabético,Alfanumérico)
@@ -53,12 +53,12 @@ class Modelo_Categoria{
 		elseif(!($valida->is_Alphanumeric($this->categoria->get_Nombre())))		$salida = 6;
 		elseif(!($valida->is_Alphabetic($this->categoria->get_Descripcion())))		$salida = 7;
 		
-		if($this->bd->insertar($sql))
+		elseif($this->bd->insertar($sql))
 			$salida = true;
 		else $salida = 8;
 		
 
-		return $salida;
+		return "error".$salida;
 	}
 	
 	
@@ -73,7 +73,7 @@ class Modelo_Categoria{
 		$valida = new Validacion_Datos(); // <- Para validar los tipos de datos
 		// Validacion de los minimos
 		if((strlen($this->categoria->get_Id()) > 13)||(strlen($this->categoria->get_Id()) < 5)) $salida = 2;
-		elseif((strlen($this->categoria->get_Nombre()) > 30)||(strlen($this->categoria->get_Nombre()) < 2)) $salida = 3;
+		elseif((strlen($this->categoria->get_Nombre()) > 30)||(strlen($this->categoria->get_Nombre()) < 4)) $salida = 3;
 		elseif((strlen($this->categoria->get_Descripcion()) > 500)||(strlen($this->categoria->get_Descripcion()) < 15)) $salida = 4;
 		
 		// Validacion de los tipos de datos (Numérico,Alfabético,Alfanumérico)
@@ -88,7 +88,7 @@ class Modelo_Categoria{
 		else $salida = 8;
 		
 
-		return $salida;
+		return "error".$salida;
 	}
 	
 	public function desconectarBD(){

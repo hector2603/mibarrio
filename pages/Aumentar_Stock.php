@@ -14,22 +14,24 @@
     if($c_perfil->get_PermisoInventario()){
         $m_producto->buscar_Producto($numero_error);
     }
-echo"<div class='row well col-lg-6 col-lg-offset-3'>";
 switch ($numero_error){ 
  default:
   //todo lo de Modificar el usuario
   //$_perfi = $c_producto->get_Perfil();
   /*if($c_perfil->get_PermisoSistema()){
     echo"<form action='../controladores-php/Controlador_Modificar_Usuario.php?perfi=0' method='post'>";
-  }else*/ echo"<form action='../script/Editar_Producto.php?id=".$c_producto->get_Id()."' method='post'>";
+  }else*/ 
+    echo"<div class='row panel  col-lg-6 col-lg-offset-3'>
+    <div class=' panel panel-primary '>";
+                                
+    echo "<div class='panel-heading'>
+                <h2 class='panel-title text-center'>Modificar Producto</h2>
+            </div>
+            <div class=' panel-body'>";
+  echo"<form action='../script/Editar_Producto.php?id=".$c_producto->get_Id()."' method='post'>";
 
-    echo "<div class='CSSTableGenerator' >
+    echo "
                 <table class='table table-striped table-hover '>
-                  <tr>
-                        <td colspan='2'>
-                            Modificar Producto
-                        </td>
-                    <tr>
                     <tr>
                         <td>
                             Nombre:
@@ -123,7 +125,9 @@ switch ($numero_error){
 
             </div>
             ";
-    echo"</form>";
+    echo"</form>
+    </div>
+    </div>";
 
 
 break;
