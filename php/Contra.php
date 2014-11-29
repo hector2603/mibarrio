@@ -28,7 +28,7 @@
 					<?php
 						{
 							if (isset($_REQUEST['error']))
-								echo "<br>Datos inv&aacute;lidos";
+								echo "<label  class='col-lg-3 ' control-label'>Datos inv&aacute;lidos</label> <br>";
 						}
 					?>
 					<div class='col-lg-3' ></div>

@@ -80,8 +80,10 @@ class Validar_Usuario{
 
 	public function borrar_Usuario($doc)
 	{
-		include ("../pages/perfil.php");
-		if($c_perfil->get_PermisoPerfiles()){
+
+		$c_usuario = new Controlador_Usuario();
+		$m_usuario = new Modelo_Usuario($c_usuario);
+		if(true){
 
 				if($m_usuario->eliminar_Usuario($doc)){
 					header("Location: ../pages/Eliminar_Usuario.php?gestion=exito");
