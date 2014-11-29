@@ -118,7 +118,7 @@ switch ($numero_error){
                             Cantidad:
                         </td>
                         <td>
-                            <input type='text' name='cantidad' class='form-control' placeholder='minimo 2 caracteres' required='required' maxlength=10/>
+                            <input type='text' name='cantidad' class='form-control' placeholder='minimo 1 caracter' required='required' maxlength=10/>
                         </td>  
                     </tr>
                    
@@ -199,7 +199,7 @@ case "error7":
 break;
 case "error8":
     echo "<div class='login-help'><h1><i>No se ha creado el Producto.</i></h1>";
-    echo "<p>Error: Tama&ntilde;o 'Cantidad' m&iacute;nimo: 2 caracteres y maximo 10 caracteres</div><br>";
+    echo "<p>Error: Tama&ntilde;o 'Cantidad' m&iacute;nimo: 1 caracter y maximo 10 caracteres</div><br>";
     echo "<button type='button' class='btn btn-primary' onclick='history.back()'>Atras</button>";
 break;
 case "error9":
