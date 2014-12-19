@@ -301,7 +301,7 @@
 					}
 
 					if($c_perfil->get_PermisoReportes()){
-						echo "<li><a href='#'>Reportes</a></li>";
+						echo "<li><a href='Crear_Reporte.php?gestion=crearReporte'>Reportes</a></li>";
 					}
 					//echo"</ul>";
 
