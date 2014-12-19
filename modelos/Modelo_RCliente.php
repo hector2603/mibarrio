@@ -14,7 +14,8 @@ class Modelo_RCliente{
 	public function getclienteporcompra(){
 		// Abrir la conexion
 		$this->con->concetar();
-		$sql = "select clientes.Nombres, count(factura.idcliente), factura.fechaventa from factura, clientes where factura.idcliente=clientes.Documento group by factura.idcliente order by count(factura.idcliente) desc;";
+		$sql = "select clientes.Nombres, count(factura.idcliente), factura.fechaventa from factura, clientes
+		 where factura.idcliente=clientes.Documento and factura.estado='Registrada' group by factura.idcliente order by count(factura.idcliente) desc;";
 
 		// Recibe el resultset de la consulta
 		$resultset = $this->con->consultar($sql);
