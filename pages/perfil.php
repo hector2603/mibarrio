@@ -301,7 +301,18 @@
 					}
 
 					if($c_perfil->get_PermisoReportes()){
-						echo "<li><a href='Crear_Reporte.php?gestion=crearReporte'>Reportes</a></li>";
+						echo "
+							<li class='dropdown' >
+						      <a href='#' class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
+						         Reportes <b class='caret'></b> 
+								</a>
+							<ul class='dropdown-menu'>
+			 			          	<li><a href='Reporte_Ventas_Buscar.php'><b>Ventas</b></a></li>
+			 			          	<li><a href='Reporte_Ventas.php'><b>Productos Por Venta</b></a></li>
+			 			          	<li><a href='Reporte_Ganancias.php'><b>Ganancias</b></a></li>
+			 			          	<li><a href='Reporte_Producto_Por_Venta.php'><b>Buscar por Fecha</b></a></li>
+						 	</ul> 
+							</li>";
 					}
 					//echo"</ul>";
 
