@@ -1,56 +1,34 @@
 <?php
-require_once('Controlador_reportes.php');
+
+include_once '../modelos/Modelo_RVenta.php';
+
 class Controlador_RProductosPorVenta{
-	private $producto = "";
-	private $estadoEnInventario = "";
-	private $fechaVenta = "";
-	private $cantVendida = "";
+	private $RVenta;	// Tipo: Modelo_RVenta
 
-
-	public function crear_RProductosPorVenta( $pro, $estIn, $fecha, $cantV){
-		$this->producto = $pro;
-		$this->estadoEnInventario = $estIn;
-		$this->fechaVenta = $fecha;
-		$this->cantVendida = $cantV;
-		
-		
-	}
-	
-	public function get_producto(){
-		return $this->producto;
-	}
-	
-	public function get_estadoEnInventario(){
-		return $this->estadoEnInventario;
-	}
-	
-	public function get_fechaVenta(){
-		return $this->fechaVenta;
+	public function __construct($modelo_rventa){
+		$this->RVenta = $modelo_rventa;
 	}
 
-	public function get_cantVendida(){
-		return $this->cantVendida;
-	}
-	
-	
-	
-	public function set_producto($pro){
-		$this->producto = $pro;
-	}
-
-	public function set_estadoEnInventario($estIn){
-		$this->estadoEnInventario = $estIn;
-	}
-	
-	public function set_fechaVenta($fecha){
-		$this->fechaVenta = $fecha;
+	public function imprimirFilasPorVenta(){
+		$matriz = $this->RVenta->getVentas();
+		for ($i=0; $i < $this->RVenta->getTamVentas(); $i++) { 
+			echo "<tr>
+					<td>".$matriz[$i][1]."</td>
+					<td>".$matriz[$i][0]."</td>
+				</tr>";
+		}
 	}
 
-	
-	public function set_cantVendida($cantV){
-		$this->cantVendida = $cantV;
+	public function imprimirFilasPorFecha($fe1,$fe2){
+		$matriz = $this->RVenta->getBuscarVentas($fe1,$fe2);
+		for ($i=0; $i < $this->RVenta->getTamVentas(); $i++) { 
+			echo "<tr>
+					<td>".$matriz[$i][1]."</td>
+					<td>".$matriz[$i][0]."</td>
+				</tr>";
+		}
 	}
-		
+	
 }
 
 ?>

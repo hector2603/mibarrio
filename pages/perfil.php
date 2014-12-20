@@ -307,10 +307,14 @@
 						         Reportes <b class='caret'></b> 
 								</a>
 							<ul class='dropdown-menu'>
-			 			          	<li><a href='Reporte_Ventas_Buscar.php'><b>Ventas</b></a></li>
-			 			          	<li><a href='Reporte_Ventas.php'><b>Productos Por Venta</b></a></li>
+			 			          	<li><a href='Reporte_Ventas.php'><b>Ventas</b></a></li>
+			 			          	<li><a href='Reporte_Producto_Por_Venta.php'><b>Productos Por Venta</b></a></li>
 			 			          	<li><a href='Reporte_Ganancias.php'><b>Ganancias</b></a></li>
-			 			          	<li><a href='Reporte_Producto_Por_Venta.php'><b>Buscar por Fecha</b></a></li>
+			 			          	<li><a href='Reporte_Cliente_Por_Compra.php'><b>Clientes por compra</b></a></li>
+			 			          	<li><a href='Reporte_Ventas_Buscar.php'><b>Buscar Venta por Fecha</b></a></li>
+			 			          	<li><a href='Reporte_Cliente_Buscar.php'><b>Buscar clientes por compra por fecha</b></a></li>
+			 			          	<li><a href='Reporte_Producto_Por_Venta_Buscar.php'><b>Buscar producto por venta por fecha</b></a></li>
+			 			          	<li><a href='Reporte_Ganancias_Buscar.php'><b>Buscar ganancias por fecha</b></a></li>
 						 	</ul> 
 							</li>";
 					}
@@ -326,6 +330,5 @@
 			</div>
 		</div>
 </div>
-
 
 
