@@ -3,6 +3,8 @@
 	include ("perfil.php"); 
 
 	//se inicia la div del contenido, el css indica donde va ubicada.
+
+	
 	echo"<div class='row well'>";
 
 	///////////////////////////////////////////////////////////////////////////
