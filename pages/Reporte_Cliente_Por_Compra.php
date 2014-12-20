@@ -13,7 +13,7 @@
 	if(isset($_REQUEST['fecha1']) AND isset($_REQUEST['fecha2']))
 		echo "<p> Mostrar entre las fechas <i>" . $_REQUEST['fecha1'] . "</i> y <i>" .$_REQUEST['fecha2']. "</i></p><br>";
 ?>
-		<div class='row table-responsive' >
+		<div id="tabla" class='row table-responsive' >
 			<table border=1 class='table table-striped table-hover table-condensed'>
 	<thead>
 		<tr>
@@ -34,11 +34,29 @@
 	
 </table>
 		</div>
-		<a href='#.php' class='btn btn-primary'>Imprimir</a>
+		<form action="../script/pdf_reportes.php">
+    		<input type='text' id='codigo' name="codigohtml" class='form-control hide'/>
+			<button class='btn btn-primary' type='submit' >Imprimir  <i class="fa fa-print"></i></i></button>
+
+		</form>
 	</div>
   </div>
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/npm.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	var html = $("#tabla").html();
+
+	$("#codigo").val(html);
+
+
+	});
+
+
+</script>
 </body>
 </html>

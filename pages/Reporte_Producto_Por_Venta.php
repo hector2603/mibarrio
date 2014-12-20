@@ -42,7 +42,11 @@ if(isset($_REQUEST['fecha1']) AND isset($_REQUEST['fecha2']))
 	
 </table>
 		</div>
-		<a href='#.php' class='btn btn-primary'>Imprimir</a>
+		<form action="../script/pdf_reportes.php">
+    		<input type='text' id='codigo' name="codigohtml" class='form-control hide'/>
+			<button class='btn btn-primary' type='submit' >Imprimir  <i class="fa fa-print"></i></i></button>
+
+		</form>
 	</div>
   </div>
 </div>
@@ -50,7 +54,18 @@ if(isset($_REQUEST['fecha1']) AND isset($_REQUEST['fecha2']))
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/npm.js"></script>
 <script type="text/javascript">
-alert($("#tabla").html());
+
+
+$(document).ready(function(){
+
+	var html = $("#tabla").html();
+
+	$("#codigo").val(html);
+
+
+	});
+
+
 </script>
 </body>
 </html>

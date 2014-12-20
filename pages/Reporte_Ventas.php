@@ -40,17 +40,29 @@
 		
 			</table>
 		</div>
-		<button class='btn btn-primary' type='button' onclick='imprimir()' >Imprimir  <i class="fa fa-print"></i></i></button>
+		<form action="../script/pdf_reportes.php">
+    		<input type='text' id='codigo' name="codigohtml" class='form-control hide'/>
+			<button class='btn btn-primary' type='submit' >Imprimir  <i class="fa fa-print"></i></i></button>
+
+		</form>
 	</div>
   </div>
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/npm.js"></script>
 <script type="text/javascript">
-function imprimir(){
-	
-	alert($("#tabla").html());
-}
+
+
+$(document).ready(function(){
+
+	var html = $("#tabla").html();
+
+	$("#codigo").val(html);
+
+
+	});
+
+
 </script>
 </body>
 </html>
