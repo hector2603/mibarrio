@@ -13,7 +13,7 @@ class Modelo_RVentas{
 	public function getVentas(){
 		// Abrir la conexion
 		$this->bd->conectar();
-		$sql = "SELECT count(Idfactura) AS num,fechaventa FROM factura WHERE  estado='Registrada' group by fechaventa;";
+		$sql = "SELECT count(Idfactura) AS num,fechaventa FROM factura WHERE estado='Registrada' group by fechaventa;";
 
 		// Recibe el resultset de la consulta
 		$resultset = $this->bd->consultar($sql);

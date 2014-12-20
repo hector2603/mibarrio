@@ -13,7 +13,7 @@ class Modelo_RCompra{
 	public function getClientesPorCompra(){
 		// Abrir la conexion
 		$this->bd->conectar();
-		$sql = "select clientes.Nombres, count(factura.Idcliente) AS num, factura.fechaventa from factura, clientes where factura.Idcliente=clientes.Documento and factura.estado='Registrada' and factura.estado='Registrada' AND fechaventa>='1111-11-11' AND fechaventa<='9999-99-99' group by factura.fechaventa, factura.Idcliente order by factura.fechaventa desc";
+		$sql = "select clientes.Nombres, count(factura.Idcliente) AS num, factura.fechaventa from factura, clientes where factura.Idcliente=clientes.Documento and factura.estado='Registrada' and factura.estado='Registrada' AND fechaventa>='11-11-1111' AND fechaventa<='99-99-9999' group by factura.fechaventa, factura.Idcliente order by factura.fechaventa desc";
 
 		// Recibe el resultset de la consulta
 		$resultset = $this->bd->consultar($sql);
