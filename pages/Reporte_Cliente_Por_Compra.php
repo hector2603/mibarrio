@@ -37,7 +37,7 @@
 		<form action="../script/pdf_reportes.php">
     		<input type='text' id='codigo' name="codigohtml" class='form-control hide'/>
 			<button class='btn btn-primary' type='submit' >Imprimir  <i class="fa fa-print"></i></i></button>
-
+<a class='btn btn-primary' href='javascript:history.back()'> Volver Atrás</a>
 		</form>
 	</div>
   </div>
