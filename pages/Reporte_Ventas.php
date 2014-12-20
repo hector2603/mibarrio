@@ -9,32 +9,48 @@
 <head>
 	<title>venta</title>
 </head>
+
 <body>
-	<?php
-	if(isset($_REQUEST['fecha1']) AND isset($_REQUEST['fecha2']))
-		echo "<p> Mostrar entre las fechas <i>" . $_REQUEST['fecha1'] . "</i> y <i>" .$_REQUEST['fecha2']. "</i></p><br>";
-	?>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Fecha</th>
-			<th>Cantidad de Ventas</th>
-		</tr>
-	</thead>
+  <div class="panel panel-primary">
+    <div class='panel-heading'>
+    	<h2 class='panel-title text-center'>Ventas</h2>
+    </div>
+    <div class=' panel-body'>
+		<?php
+		if(isset($_REQUEST['fecha1']) AND isset($_REQUEST['fecha2']))
+			echo "<label class='control-label'> Mostrar entre las fechas <i>" . $_REQUEST['fecha1'] . "</i> y <i>" .$_REQUEST['fecha2']. "</i></label><br>";
+		?>
+		<div id="tabla" class='row table-responsive' >
+			<table border=1 class='table table-striped table-hover table-condensed'>
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Cantidad de Ventas</th>
+				</tr>
+			</thead>
+				
+			<?php
+			$modelo = new Modelo_RVentas();
+			$controlador = new Controlador_RProductosPorVenta($modelo);
+			if(isset($_REQUEST['fecha1']) AND isset($_REQUEST['fecha2']))
+				$controlador->imprimirFilasPorFecha($_REQUEST['fecha1'],$_REQUEST['fecha2']);
+			else
+				$controlador->imprimirFilasPorVenta();
+			?>
 		
-	<?php
-	$modelo = new Modelo_RVentas();
-	$controlador = new Controlador_RProductosPorVenta($modelo);
-	if(isset($_REQUEST['fecha1']) AND isset($_REQUEST['fecha2']))
-		$controlador->imprimirFilasPorFecha($_REQUEST['fecha1'],$_REQUEST['fecha2']);
-	else
-		$controlador->imprimirFilasPorVenta();
-	?>
-	
-</table>
-</div>
+			</table>
+		</div>
+		<button class='btn btn-primary' type='button' onclick='imprimir()' >Imprimir  <i class="fa fa-print"></i></i></button>
+	</div>
+  </div>
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/npm.js"></script>
+<script type="text/javascript">
+function imprimir(){
+	
+	alert($("#tabla").html());
+}
+</script>
 </body>
 </html>
